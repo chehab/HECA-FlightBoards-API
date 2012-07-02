@@ -111,9 +111,115 @@ class CAIhtmlParser(HTMLParser):
 
         return "Arrival Exported..."
     
+    def CAIDepartureExport(self):
+        f = urlopen("http://www.cairo-airport.com/flight_departure_result.asp")
+        CAI = f.read()
+        f.close()
+
+        parser = CAIhtmlParser()
+        parser.feed(CAI)    
+
+        return json.dumps( parser.allRows )
+
+    def CAIArrivalExport(self):
+        f = urlopen("http://www.cairo-airport.com/flight_arrival_result.asp")
+        CAI = f.read()
+        f.close()
+
+        parser = CAIhtmlParser()
+        parser.feed(CAI)    
+
+        return json.dumps( parser.allRows )
+
+
+    def CAIArrivalInstance(self):
+        f = urlopen("http://www.cairo-airport.com/flight_arrival_result.asp")
+        CAI = f.read()
+        f.close()
+
+        arrival = CAIhtmlParser()
+        arrival.feed(CAI)
+
+        return arrival
+
+    def CAIDepartureInstance(self):
+        f = urlopen("http://www.cairo-airport.com/flight_departure_result.asp")
+        CAI = f.read()
+        f.close()
+
+        departure = CAIhtmlParser()
+        departure.feed(CAI)
+
+        return departure        
+
+    def CAIreturnJSON(self):
+        f = urlopen("http://www.cairo-airport.com/flight_arrival_result.asp")
+        CAI = f.read()
+        f.close()
+
+        arrival = CAIhtmlParser()
+        arrival.feed(CAI)    
+
+        f = urlopen("http://www.cairo-airport.com/flight_departure_result.asp")
+        CAI = f.read()
+        f.close()
+
+        departure = CAIhtmlParser()
+        departure.feed(CAI) 
+
+        return json.dumps( { "arrival":arrival.allRows, "departure":departure.allRows } )
+
+    def CAIReturnArrivalXML(self):
+        arrival = self.CAIArrivalInstance()
+
+        xmlexport = "\n <arrival>\n"
+
+        for fl in arrival.allRows:
+
+            xmlexport += "\n  <flight>\n\n"
+
+            for key in arrival.columnsTitle:
+                #if len(fl[key]) != 0:
+                xmlexport += "   <{}>{}</{}>\n".format(key, fl[key], key) 
+
+            xmlexport += "\n  </flight>\n"
+
+        xmlexport += "\n </arrival>\n"
+
+        return xmlexport
+
+    def CAIReturnDepartureXML(self):
+        departure = self.CAIDepartureInstance()
+
+        xmlexport = "\n <departure>\n"
+
+        for fl in departure.allRows:
+
+            xmlexport += "\n  <flight>\n\n"
+
+            for key in departure.columnsTitle:
+                #if len(fl[key]) != 0:
+                xmlexport += "   <{}>{}</{}>\n".format(key, fl[key], key)
+
+            xmlexport += "  </flight>\n"
+
+        xmlexport += "\n </departure>\n"
+
+        return xmlexport
+
+    def CAIReturnXML(self):
+        xmlexport = '<?xml version="1.0"?>\n'
+        xmlexport += "<HECA>\n"
+        xmlexport += "{}".format( self.CAIReturnArrivalXML() )
+        xmlexport += "{}".format( self.CAIReturnDepartureXML() )
+        xmlexport += "\n</HECA>"
+        return xmlexport
+
+
+    
 if __name__ == '__main__':
     
     CAI = CAIhtmlParser()
-    print CAI.CAIArrivalJSONExport()
+    print CAI.CAIReturnDepartureXML()
     
     print "$>   End"

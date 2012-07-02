@@ -19,7 +19,9 @@ class CAIhtmlParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
         if len(attrs) and not self.openRow:
             if tag == "tr" and attrs[0] == ('align', 'center'):
-                print "$> raw OPEN"
+                self.openRow = True
+                if self.PrintView:
+                    print "$> raw OPEN"
         if tag == "td" and self.openRow:
             print "$> td OPEN"
     
@@ -28,6 +30,10 @@ class CAIhtmlParser(HTMLParser):
             self.openRow = False
             self.columnsIndex = 0
             self.allRows.append(self.row)
+            if self.PrintView:
+                print "$>   Row: "
+                self.expandRow(self.row)
+                print "$>   Row closed"
         if tag == "td" and self.openRow:
             self.insertCell = False
             if self.columnsIndex == 10:
@@ -40,16 +46,18 @@ class CAIhtmlParser(HTMLParser):
             self.row[ self.columnsTitle[ self.columnsIndex ] ] = data
             
     def returnRows(self):
-    for row in self.allRows:
-        print "\n####################################\n"
-        for col in self.columnsTitle:
-            print col + ": " + row[col] + "\n"
+        if self.PrintView:
+            for row in self.allRows:
+                print "\n####################################\n"
+                for col in self.columnsTitle:
+                    print col + ": " + row[col] + "\n"
     
     def expandRow(self,row):
-        print "####################################\n"
-        for col in self.columnsTitle:
-            print col + ": " + row[col] + "\n"
-        print "####################################"
+        if self.PrintView:
+            print "####################################\n"
+            for col in self.columnsTitle:
+                print col + ": " + row[col] + "\n"
+            print "####################################"
         
     def jsonExport(self, filename = 'JSON'):
         f = open( filename, 'w')

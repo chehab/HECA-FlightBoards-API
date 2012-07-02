@@ -1,5 +1,6 @@
 from HTMLParser import HTMLParser
 from urllib import urlopen
+import json
 
 
 
@@ -34,6 +35,26 @@ class CAIhtmlParser(HTMLParser):
     def handle_data(self, data):
         if self.insertCell:
             self.row[ self.columnsTitle[ self.columnsIndex ] ] = data
+            
+    def returnRows(self):
+    for row in self.allRows:
+        print "\n####################################\n"
+        for col in self.columnsTitle:
+            print col + ": " + row[col] + "\n"
+    
+    def expandRow(self,row):
+        print "####################################\n"
+        for col in self.columnsTitle:
+            print col + ": " + row[col] + "\n"
+        print "####################################"
+        
+    def jsonExport(self, filename = 'JSON'):
+        f = open( filename, 'w')
+        f.write("")
+        f.close()
+        f = open( filename, 'a')
+        f.write( json.dumps( self.allRows ) )
+        f.close()
     
 if __name__ == '__main__':
     

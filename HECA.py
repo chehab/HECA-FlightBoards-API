@@ -216,6 +216,66 @@ class HECAParser(HTMLParser):
     
 
 ##########################################################################################
+### File Export ##########################################################################
+
+
+    def HECAExportToFile(self, filename, _format, _heading=self.HECAHeading.Both):
+        pass
+    
+    def HECAExportArrivalToFile(self, filename, _format):
+        pass
+    
+    def HECAExportDepartureToFile(self, filename, _format):
+        pass
+    
+
+### Export to JSON #######################################################################
+
+    def HECAExportToJSONFile(self, filename="HECA-flighdata.json", _heading=HECAHeading.Both):
+        self.__writeToFile__(filename, json.dumps( { "arrival":self.arrivalList, "departure":self.departureList } ) )
+        if self.debug:
+            print " %>Exporting JSON file"
+        
+    
+
+    def HECAExportArrivalToJSONFile(self, filename="HECA-Arrival.json"):
+        self.__writeToFile__(filename, json.dumps( { "arrival":self.arrivalList } ) )
+        if self.debug:
+            print " %>Exporting Arrival JSON file"
+        
+    
+
+    def HECAExportDepartureToJSONFile(self, filename="HECA-Departure.json"):
+        self.__writeToFile__(filename, json.dumps( { "departure":self.departureList } ) )
+        if self.debug:
+            print " %>Exporting Departure JSON file"
+        
+    
+
+### Export to XML ########################################################################
+
+    def HECAExportToXMLFile(self, filename="HECA-flighdata.xml", _heading=HECAHeading.Both):
+        self.__writeToFile__(filename, self.HECAGetAsXML() )
+        if self.debug:
+            print " %>Generating XML File"    
+        
+    
+
+    def HECAExportArrivalToXMLFile(self, filename="HECA-Arrival.xml"):
+        self.__writeToFile__(filename, self.HECAGetArrivalAsXML() )
+        if self.debug:
+            print " %>Generating Arrival XML file"
+        
+    
+
+    def HECAExportDepartureToXMLFile(self, filename="HECA-Departure.xml"):
+        self.__writeToFile__(filename, self.HECAGetDepartureAsXML() )
+        if self.debug:
+            print " %>Generating Departure XML"
+        
+    
+
+##########################################################################################
 ### debug ################################################################################
 
 
@@ -243,11 +303,8 @@ class HECAParser(HTMLParser):
             for col in self.titles:
                 print "   "+ col + ": " + self.flight[col] + "\n"
             print "######################################\n"
-                        
-
-
-
+        
     
-if __name__ == '__main__':
-    
-    # print "$>   End"
+
+##########################################################################################
+################################################################# End of Implemntation ###           

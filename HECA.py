@@ -81,6 +81,35 @@ class HECAParser(HTMLParser):
 
 
 ##########################################################################################
+### Generate #############################################################################
+
+
+    def HECARefreshFlightData(self):
+        self.HECAGenerateFlightData()
+
+
+    def HECAUpdateFlightData(self):
+        self.HECAGenerateFlightData()
+
+
+    def HECAGenerateFlightData(self):
+        if self.debug:
+            print " %>Parsing Flight Data"
+        self.HECAGenerateArrival()
+        self.HECAGenerateDeparture()
+
+
+    def HECAGenerateArrival(self,):
+        if self.debug:
+            print " %>Parsing Arrival Data"
+        f = urlopen("http://www.cairo-airport.com/flight_arrival_result.asp")
+        self.flightmode = self.HECAHeading.Arrival
+        self.feed( f.read() )
+        f.close()
+        self.flightmode = None
+        self.arrivalList.reverse()
+
+##########################################################################################
 ### debug ################################################################################
 
 

@@ -219,7 +219,7 @@ class HECAParser(HTMLParser):
 ### File Export ##########################################################################
 
 
-    def HECAExportToFile(self, filename, _format, _heading=self.HECAHeading.Both):
+    def HECAExportToFile(self, filename, _format, _heading=HECAHeading.Both):
         pass
     
     def HECAExportArrivalToFile(self, filename, _format):

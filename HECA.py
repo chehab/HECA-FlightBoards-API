@@ -86,18 +86,18 @@ class HECAParser(HTMLParser):
 
     def HECARefreshFlightData(self):
         self.HECAGenerateFlightData()
-
+    
 
     def HECAUpdateFlightData(self):
         self.HECAGenerateFlightData()
-
+    
 
     def HECAGenerateFlightData(self):
         if self.debug:
             print " %>Parsing Flight Data"
         self.HECAGenerateArrival()
         self.HECAGenerateDeparture()
-
+    
 
     def HECAGenerateArrival(self,):
         if self.debug:
@@ -108,6 +108,55 @@ class HECAParser(HTMLParser):
         f.close()
         self.flightmode = None
         self.arrivalList.reverse()
+    
+
+    def HECAGenerateDeparture(self,):
+        if self.debug:
+            print " %>Parsing Departure Data"
+        f = urlopen("http://www.cairo-airport.com/flight_departure_result.asp")
+        self.flightmode = self.HECAHeading.Departure
+        self.feed( f.read() )
+        f.close()
+        self.flightmode = None
+        self.departureList.reverse()
+    
+
+##########################################################################################
+### Return JSON ##########################################################################
+
+
+    def HECAGetAsJSON(self, _heading = HECAHeading.Both):
+        if self.debug:
+            print " %>Generating JSON"            
+        if _heading == self.HECAHeading.Departure:
+            if not self.departureList:
+                self.HECAGenerateDeparture()
+            return json.dumps( { "departure":self.departureList } )
+        if _heading == self.HECAHeading.Arrival:
+            if not self.arrivalList:
+                self.HECAGenerateArrival()
+            return json.dumps( { "arrival":self.arrivalList } )
+        if _heading == self.HECAHeading.Both:
+            if not self.arrivalList and not self.departureList:
+                self.HECAGenerateFlightData()
+            return json.dumps( { "arrival":self.arrivalList, "departure":self.departureList } )
+    
+
+    def HECAGetArrivalAsJSON(self):
+        if self.debug:
+            print " %>Generating Arrival JSON"
+        if not self.arrivalList:
+            self.HECAGenerateArrival()
+        return json.dumps( {"Arrival":self.arrivalList} )
+    
+
+    def HECAGetDepartureAsJSON(self):
+        if self.debug:
+            print " %>Generating Departure JSON"
+        if not self.departureList:
+            self.HECAGenerateDeparture()
+        return json.dumps( {"departure":self.departureList} )
+    
 
 ##########################################################################################
 ### debug ################################################################################

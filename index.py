@@ -62,3 +62,29 @@ else:
     except:
         print "Content-type: text/html\r\n\r\n"
         print "<h1>An Error was encountered <em>in the input pramiters</em></h1>"
+    
+    #######################################################################################
+    ### Returing Request ##################################################################
+    try:
+        CAI = HECAParser()
+        ### Returing JSON #################################################################
+        if returnType == "json":
+            print "Content-type: application/json"; print
+            if flightData == "both":
+                print CAI.HECAGetAsJSON()
+            elif flightData == "arrival":
+                print CAI.HECAGetArrivalAsJSON()
+            elif flightData == "departure":
+                print CAI.HECAGetDepartureAsJSON()
+        ### Returing XML ##################################################################
+        if returnType == "xml":
+            print "Content-type: application/xml"; print
+            if flightData == "both":
+                print CAI.HECAGetAsXML()
+            elif flightData == "arrival":
+                print CAI.HECAGetArrivalAsXML()
+            elif flightData == "departure":
+                print CAI.HECAGetDepartureAsXML()
+    except:
+        print "Content-type: text/html\r\n\r\n"
+        print "<h1>An Error was encountered <em>while parsing</em></h1>"

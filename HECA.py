@@ -7,6 +7,9 @@ import json
 
 class CAIhtmlParser(HTMLParser):
     
+    openRow = False
+    insertCell = False
+    PrintView = False
     row = {}
     allRows = []
     columnsIndex = 0

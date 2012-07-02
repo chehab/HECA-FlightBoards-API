@@ -156,6 +156,63 @@ class HECAParser(HTMLParser):
         if not self.departureList:
             self.HECAGenerateDeparture()
         return json.dumps( {"departure":self.departureList} )
+
+##########################################################################################
+### Return XML ###########################################################################
+
+
+    def HECAGetAsXML(self, heading = HECAHeading.Both):
+        if heading == self.HECAHeading.Departure:
+            return self.HECAGetDepartureAsXML()
+        
+        if heading == self.HECAHeading.Arrival:
+            return self.HECAGetArrivalAsXML()
+        
+        if heading == self.HECAHeading.Both:
+            xmlexport = '<?xml version="1.0"?>\n'
+            xmlexport += "\n\t<HECAFlights>\n"
+            xmlexport += self.HECAGetArrivalAsXML(XMLTag=False)
+            xmlexport += self.HECAGetDepartureAsXML(XMLTag=False)
+            xmlexport += "\n\t</HECAFlights>\n"
+            return xmlexport
+        
+        if self.debug:
+            print " %>Generating XML"
+        
+    
+
+    def HECAGetArrivalAsXML(self, XMLTag=True):
+        if self.debug:
+            print " %>Generating Arrival XML"
+        if not self.arrivalList:
+            self.HECAGenerateArrival()
+        xmlexport = '<?xml  version="1.0"?>\n\n\t<HECAFlights>\n' if XMLTag else ""
+        xmlexport += "\n\t\t<arrival>\n"
+        for fl in self.arrivalList:
+            xmlexport += "\n\t\t\t<flight>"
+            for key in self.titles:
+                xmlexport += "\n\t\t\t\t<{0}>{1}</{2}>".format(key, fl[key], key)
+            xmlexport += "\n\t\t\t</flight>\n"
+        xmlexport += "\n\t\t</arrival>\n"
+        xmlexport += '\n\t</HECAFlights>\n' if XMLTag else ""
+        return xmlexport
+    
+
+    def HECAGetDepartureAsXML(self, XMLTag=True):
+        if self.debug:
+            print " %>Generating Departure XML"
+        if not self.departureList:
+            self.HECAGenerateDeparture()
+        xmlexport = '<?xml  version="1.0"?>\n\n\t<HECAFlights>\n' if XMLTag else ""
+        xmlexport += "\n\t\t<departure>\n"
+        for fl in self.departureList:
+            xmlexport += "\n\t\t\t<flight>"
+            for key in self.titles:
+                xmlexport += "\n\t\t\t\t<{0}>{1}</{2}>".format(key, fl[key], key)
+            xmlexport += "\n\t\t\t</flight>\n"
+        xmlexport += "\n\t\t</departure>\n"
+        xmlexport += '\n\t</HECAFlights>\n' if XMLTag else ""
+        return xmlexport
     
 
 ##########################################################################################

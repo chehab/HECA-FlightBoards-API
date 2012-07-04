@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 #!/usr/bin/python
 
 # Import modules for CGI handling 
@@ -69,7 +70,8 @@ else:
         CAI = HECAParser()
         ### Returing JSON #################################################################
         if returnType == "json":
-            print "Content-type: application/json"; print
+            print "Content-type: application/json"#; print
+            print "Content-Encoding: UTF8"; print
             if flightData == "both":
                 print CAI.HECAGetAsJSON()
             elif flightData == "arrival":
@@ -78,7 +80,8 @@ else:
                 print CAI.HECAGetDepartureAsJSON()
         ### Returing XML ##################################################################
         if returnType == "xml":
-            print "Content-type: application/xml"; print
+            print "Content-type: application/xml"
+            print "Content-Encoding: UTF8"; print
             if flightData == "both":
                 print CAI.HECAGetAsXML()
             elif flightData == "arrival":

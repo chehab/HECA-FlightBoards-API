@@ -1,3 +1,42 @@
+# -*- coding: UTF-8 -*-
+##############################################################
+##############################################################
+##                                                          ##
+##      HECA-Fb v2.1.1         HECA/CAI Flight Baord        ##
+##      HECA Parser for cairo-airport.com/flight_**         ##
+##                                                          ##
+##           by: Chehab Mustafa-Hilmy                       ##
+##          url: Chehab.me                                  ##
+##      contact: apis@chehab.me                             ##
+##                                                          ##
+##############################################################
+
+###### Update logg #######################
+
+    
+    ### 2.1.1 #######################
+            # minorfix: encoding/charset UTF-8
+    
+    ### 2.1 ##########################
+            # Minor Bugfixes
+            # CGI script rewriten
+    
+    ### 2.0 ##########################
+            # API Rewriten
+            # API Changed
+            # Faster Parsing
+            # Faster Exporting
+            # Less memory footprint
+    
+    ### 1.3 ##########################
+            # Minor Enhancement 
+            # Less memory footprint
+    
+    ### 1.0 ##########################
+            # Stable Version
+    
+##########################################
+
 from HTMLParser import HTMLParser
 from urllib import urlopen
 import json

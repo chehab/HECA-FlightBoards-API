@@ -8,7 +8,7 @@ import sys, cgi
 import cgitb; cgitb.enable()
 
 # Import modules for HECA/CAI flightdata parser
-from HECA import HECAParser
+from HECAlib import HECAParser
 
 
 # Create instance of GET request

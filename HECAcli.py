@@ -46,90 +46,132 @@ import sys
 # sys.path.append('/Users/chehab/Development/HECA/')
 
 from HECADetails import *
-from HECA import *
+from HECAlib import *
 
 def HECACLIVersion():
     return 0.1
 
+class Callable:
+    def __init__(self, anycallable):
+        self.__call__ = anycallable
+
 class HECA_CLI:
     
-
-    operation = None
-    format    = None
-    flight    = None
     
-    def cli_exec():
+    operations = []
+    operation  = None
+    format     = None
+    flight     = None
+    fileName   = None
+    exportDir  = None
+    
         
-        if (len(sys.argv) > 1):
+    def cli_exec(self, args):
+        
+        if (len(args) > 1):
             
-            if( sys.argv[1] == '-v' or sys.argv[1] == '--Version' ):
+            if( args[1].lower() == '-v' or args[1].lower() == '--version' ):
                 print "\nHECA/CAI FlightBoard (beta):"
                 print "\tParser Version "+ str(HECAVersion() )
                 print "\tCLI Version "+ str(HECACLIVersion()); print
                 
             else:
-                
-                arguments = sys.argv[1].lower()
-                
-                if arguments[0:2] == "--":
-                    printExportOprtions(arguments)
-                
-                elif arguments[0] == "-" and len(arguments) < 5:
-                    printExportOprtionsAbbreviated(arguments)
-                
-                print
-                print "Runing In Debug Mode.."
-                print "arglen: " + str(len(arguments)) +" arg( "+str(1)+" / "+str(len(sys.argv))+" )"
-                print "operation: " +str(operation)
-                print "format: " + str(format)
-                print "flight: " + str(flight)
-                print
+                for i in range(1,len(args)):
+                    if args[i].lower()[0:2] == "--":
+                        self.printExportOptions(args[i].lower())
+                    
+                    elif args[i].lower()[0] == "-" and len(args[i].lower()) < 5:
+                        self.printExportOptionsAbbreviated(args[i].lower())
+                        
+                        if self.watchOption(args[i]):
+                            self.watchKeyValue(args[i])
+                    
+                    if self.operation:
+                        print
+                        print "Runing In Debug Mode.."
+                        print "arglen: " + str(len(arg.lower())) +" arg( "+ str(1)+" / "+ str(len(args))+" )"
+                        print "operation: " + str(self.operation)
+                        print "format: " + str(self.format)
+                        print "flight: " + str(self.flight)
+                        print
                 
         else:
             self.help()
         
     
-    def printExportOprtions(self, argu):
-        print " $> printExportOprtions"
+    def printExportOptions(self, argu):
+        print "HECA_CLI::printExportOptions: "+str(argu)
         # Get Operations.
         if argu[2:7] == "print":
-            operation = "PRINT"
+            self.operations.append("PRINT")
         elif argu[2:8] == "export":
-            operation = "EXPORT"
+            self.operation.append("EXPORT")
         # Selected Format.
         if argu[8:11] == "xml" or argu[9:12] == "xml":
-            format = "XML"
+            self.format = "XML"
         elif argu[8:12] == "json" or argu[9:13] == "json":
-            format = "JSON"
+            self.format = "JSON"
         # Selected Flight.
         if len(argu) > 10:
             if argu[14:21] == "arrival" or argu[13:20] == "arrival":
-                flight = "ARRIVAL"
+                self.flight = "ARRIVAL"
             elif argu[14:23] == "departure" or argu[13:22] == "departure":
-                flight = "DEPARTURE"
+                self.flight = "DEPARTURE"
         
     
-    def printExportOprtionsAbbreviated(self, argu):
+    def watchOption(self, argu):
+        print "HECA_CLI::watchOptions: "+str(argu)
+        # Get Operations.
+        if argu[2:7] == "watch":
+            self.operation.append({"WATCH":None})
+            
+            for field in HECAParser.titles+["record","all","value"]:
+                if argu[8:9+len(field)] == field:
+                    self.operation[-1]["WATCH"]= field
+                    
+            return True
+            
+        else:
+            return False
+        
+       
+    def watchKeyValue(self, argu):
+        print "HECA_CLI::watchOptions: "+str(argu)
+        # Get Operations.
+        if argu[2:7] == "watch":
+            self.operation.append({"WATCH":None})
+            
+            for field in HECAParser.titles+["record","all","value"]:
+                if argu[8:9+len(field)] == field:
+                    self.operation[-1]["WATCH"]= field
+                    
+            return True
+            
+        else:
+            return False
+    
+    def printExportOptionsAbbreviated(self, argu):
+        print "HECA_CLI::printExportOptionsAbbreviated: "+str(argu)
         # Get Operations.
         if argu[1] == "e":
-            operation = "EXPORT"
+            self.operation = "EXPORT"
         elif argu[1] == "p":
-            operation = "PRINT"
+            self.operation = "PRINT"
         # Selected Format.
         if argu[2] == "j":
-            format = "JSON"
+            self.format = "JSON"
         elif argu[2] == "x":
-            format = "XML"
+            self.format = "XML"
         # Selected Flight.
         if len(argu) > 3:
             if argu[3] == "a":
-                flight = "ARRIVAL"
+                self.flight = "ARRIVAL"
             elif argu[3] == "d":
-                flight = "DEPARTURE"
+                self.flight = "DEPARTURE"
             
         
-    
-    def help(self):
+    @staticmethod
+    def help():
         print #
         print "\nHECA/CAI FlightBoard (beta):"
         print "\tLib Version "+ str(HECAVersion() )
@@ -151,5 +193,6 @@ class HECA_CLI:
         print "          departure: <d|departure> [-exd] [--Print-XML-Departure]\n"
         print "            arrival: <a|arrival> [-pja] [--Export-JSON-Arrival]\n"
     
+    # help = Callable(help)
 
         

@@ -1,3 +1,48 @@
 #!/usr/bin/python
+import sys
+from HECAcli import *
+from HECAlib import *
 
-print "HECA CLI Tool"
+
+
+if __name__ == '__main__':
+    
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "lib":
+            print "\nHECA lib debugger:\n"
+            lib = HECAParser()
+            
+            if len(sys.argv) > 2:
+                for i in range(2,len(sys.argv)):
+                    
+                    if sys.argv[i] == "watch-times":
+                        lib.watch = {"sch":True,"eta":True}
+                        continue
+                    if sys.argv[i] == "watch-all":
+                        lib.watch = "all"
+                        continue
+                        
+                    if sys.argv[i] == "debug-on":
+                        lib.debug = lib.DebugMode.On
+                        continue
+                    if sys.argv[i] == "debug-verbose":
+                        lib.debug = lib.DebugMode.Verbose
+                        continue
+                    if sys.argv[i] == "debug-file":
+                        lib.debug = lib.DebugMode.file
+                        continue
+                    
+                    if sys.argv[i] == "xml-arrivals-file":
+                        lib.HECAExportArrivalToXMLFile()
+                        continue
+                        
+            #lib.HECAGenerateArrival()
+            lib.HECAExportArrivalToXMLFile()
+        
+        else:    
+            print "\nHECA CLI Tool:\n"
+        
+            cli = HECA_CLI()
+            cli.cli_exec(sys.argv)
+    else:
+        HECA_CLI.help()

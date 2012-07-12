@@ -76,6 +76,7 @@ class HECAParser(HTMLParser):
     openRow     = False
     insertCell  = False
     debug       = DebugMode.Off
+    watch       = None #{"key":"watchValue" | True}
 
 
 ##########################################################################################
@@ -90,7 +91,16 @@ class HECAParser(HTMLParser):
                 self.flight = {"airline":"","flightno":"","date":"","sch":"","eta":"","actual":"",
                                  "airport":"","via":"","terminal":"","hall":"","status":""}
         #New Cell if Raw Open add <td> tag found
-        self.insertCell = True if tag == "td" and self.openRow else False
+        # self.insertCell = True if tag == "td" and self.openRow else False
+        if self.openRow:
+            if tag == "td":
+                self.insertCell = True
+            elif tag == "div" and self.titles[ self.currentIndex ] in ["date","sch","eta"]:
+                self.insertCell = True
+            else:
+                self.insertCell = False
+        
+    
 
 
     def handle_endtag(self, tag):
@@ -104,7 +114,9 @@ class HECAParser(HTMLParser):
                 self.arrivalList.append(self.flight)
             if self.flightmode == self.HECAHeading.Departure:
                 self.departureList.append(self.flight)
-        if tag == "td" and self.openRow:
+        # if tag == "td" and self.titles[ self.currentIndex ] not in ["date","sch","eta"]:
+        #     pass
+        if tag == "td" and self.insertCell:
             self.insertCell = False
             if self.currentIndex == 10:
                 self.currentIndex = 0
@@ -112,35 +124,44 @@ class HECAParser(HTMLParser):
                 self.currentIndex += 1
 
 
-    def handle_data(self, data):
+    def handle_data(self, data):   
         fieldData = ''
         for i in range(len(data)):
             if data[i] != '\n' and data[i] != '\r' and data[i] != '\t' and data[i] != '  ':
                 fieldData += data[i]
         if self.insertCell:
             self.flight[ self.titles[ self.currentIndex ] ] = fieldData.strip()     
+            
+        if self.watch and self.openRow:# and self.insertCell:
+            if self.watch == "all":
+                print "insertCell = " + str(self.insertCell)
+                print "@ ?-{}::{}::".format(self.titles[ self.currentIndex ],data)
+            else:
+                for wky in self.watch.keys():
+                    if self.watch[wky] == True and self.watch[wky] == self.titles[ self.currentIndex ]:
+                        print "@ {} : {} :: {}".format(wky,self.flight[ self.titles[ self.currentIndex ] ],data)
 
 
 ##########################################################################################
 ### Generate #############################################################################
 
-
+    
     def HECARefreshFlightData(self):
         self.HECAGenerateFlightData()
     
-
+    
     def HECAUpdateFlightData(self):
         self.HECAGenerateFlightData()
     
-
+    
     def HECAGenerateFlightData(self):
         if self.debug:
             print " %>Parsing Flight Data"
         self.HECAGenerateArrival()
         self.HECAGenerateDeparture()
     
-
-    def HECAGenerateArrival(self,):
+    
+    def HECAGenerateArrival(self):
         if self.debug:
             print " %>Parsing Arrival Data"
         f = urlopen("http://www.cairo-airport.com/flight_arrival_result.asp")
@@ -150,8 +171,8 @@ class HECAParser(HTMLParser):
         self.flightmode = None
         self.arrivalList.reverse()
     
-
-    def HECAGenerateDeparture(self,):
+    
+    def HECAGenerateDeparture(self):
         if self.debug:
             print " %>Parsing Departure Data"
         f = urlopen("http://www.cairo-airport.com/flight_departure_result.asp")
@@ -161,7 +182,7 @@ class HECAParser(HTMLParser):
         self.flightmode = None
         self.departureList.reverse()
     
-
+    
 ##########################################################################################
 ### Return JSON ##########################################################################
 

@@ -25,7 +25,7 @@ CAI = HECAParser()
 
 3. execute these methods depending on requested flight board and the return format.
 
-for JSON format:
+	for JSON format:
 ```python
 #return both flight boards in JSON format 
     CAI.HECAGetAsJSON() # @line #76
@@ -34,7 +34,7 @@ for JSON format:
 #return the departure flight board in JSON format 
     CAI.HECAGetDepartureAsJSON() # @line #80
 ```
-for XML format:
+	for XML format:
 ```python
 #return both flight boards in XML format
     CAI.HECAGetAsXML() # @line #86

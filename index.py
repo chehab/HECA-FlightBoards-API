@@ -28,41 +28,63 @@ else:
     flightData = None
     try:
         for ky in GET.keys():
-        ### Get return Types ################################################
-            if ky == 'json' and ( GET[ky].value == "1" or GET[ky].value == "true" ):
+        ### format=flight ################################################
+            if ky == 'json':
                 returnType = "json"; continue
-            if ky == "xml" and ( GET[ky].value == "1" or GET[ky].value == "true" ):
-                returnType = "xml"; continue
-            if ky == "type" and GET[ky].value == "json":
-                returnType = "json"; continue
-            if ky == "type" and GET[ky].value == "xml":
-                returnType = "xml"; continue
-        ### Get flight Types ################################################
-            ### [ arrival | departure | all ] = [ true | 1 ] ###
-            if ky == 'arrival' and ( GET[ky].value == "1" or GET[ky].value == "true" ):
-                flightData = "arrival"; continue
-            if ky == 'departure' and ( GET[ky].value == "1" or GET[ky].value == "true" ):
-                flightData = "departure"; continue
-            if ky == "both" and ( GET[ky].value == "1" or GET[ky].value == "true" ):
-                flightData = "both"; continue
-            #### flight= [ arrival | departure | all ] ###
-            if ky == "flight":
-                if GET[ky].value == "both":
-                    flightData = "both"; continue
-                if GET[ky].value == "arrival":
+                elif GET[ky].value == "arrival":
                     flightData = "arrival"; continue
-                if GET[ky].value == "departure":
+                elif GET[ky].value == "departure":
                     flightData = "departure"; continue
+                elif GET[ky].value == "both" or GET[ky].value == "all":
+                    flightData = "both"; continue
+            ################################################
+            if ky == 'xml':
+                returnType = "xml"; continue
+                elif GET[ky].value == "arrival":
+                    flightData = "arrival"; continue
+                elif GET[ky].value == "departure":
+                    flightData = "departure"; continue
+                elif GET[ky].value == "both" or GET[ky].value == "all":
+                    flightData = "both"; continue
+        ### flight=format ################################################
+            if ky == 'arrival':
+                flightData = "arrival"
+                elif GET[ky].value == "json":
+                    returnType = "json"; continue
+                elif GET[ky].value == "xml":
+                    returnType = "xml"; continue
+            ################################################
+            if ky == 'departure':
+                flightData = "departure"
+                elif GET[ky].value == "json":
+                    returnType = "json"; continue
+                elif GET[ky].value == "xml":
+                    returnType = "xml"; continue
         ################################################### GET request ###
     except Exception as inst:
-        print "Content-type: text/html\r\n\r\n"
-        print "<h1>An Error was encountered <em>in the input pramiters</em></h1>"
+        with open( "templaltes/head.html" , 'r') as f:
+            read_data = f.read()
+        f.closed
+        print "Status: "+statusCode+"\r\nContent-Type: text/html\r\n\r\n"
+        print read_data
+        print '<h1 style="font-size: 50px;">'+statusCode+'</h1>'
+        print '<h2 style="font-weight: bold;">An Error was Encountered,'
+        print "<br/>Check your Requested Parameter and Authentication.</h2>"
         print type(inst)
         print inst.args
         print inst
+        print '<h2> Contact <a href="mailto:apis@chehab.me">  apis@chehab.me  </a>  </h2>'
     except:
-        print "Content-type: text/html\r\n\r\n"
-        print "<h1>An Error was encountered <em>in the input pramiters</em></h1>"
+        with open( "templaltes/head.html" , 'r') as f:
+            read_data = f.read()
+        f.closed
+        print "Status: "+statusCode+"\r\nContent-Type: text/html\r\n\r\n"
+        print read_data
+        print '<h1 style="font-size: 50px;">'+statusCode+'</h1>'
+        print '<h2 style="font-weight: bold;">An Error was Encountered,'
+        print "<br/>Check your Requested Parameter and Authentication."
+        print '<br/><br/> Contact <a href="mailto:apis@chehab.me">  apis@chehab.me  </a>  </h2>'
+    
     
     #######################################################################################
     ### Returing Request ##################################################################
@@ -89,5 +111,13 @@ else:
             elif flightData == "departure":
                 print CAI.HECAGetDepartureAsXML()
     except:
-        print "Content-type: text/html\r\n\r\n"
-        print "<h1>An Error was encountered <em>while parsing</em></h1>"
+        with open( "templaltes/head.html" , 'r') as f:
+            read_data = f.read()
+        f.closed
+        print "Status: "+statusCode+"\r\nContent-Type: text/html\r\n\r\n"
+        print read_data
+        print '<h1 style="font-size: 50px;">'+statusCode+'</h1>'
+        print '<h2 style="font-weight: bold;">An Error was Encountered,'
+        print "<br/>Try Agian Later."
+        print '<br/><br/> Contact <a href="mailto:apis@chehab.me">  apis@chehab.me  </a>  </h2>'
+    

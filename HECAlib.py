@@ -2,7 +2,7 @@
 ##############################################################
 ##############################################################
 ##                                                          ##
-##      HECA-Fb v2.1.1         HECA/CAI Flight Baord        ##
+##      HECA-FB v2.3.1         HECA/CAI Flight Baord        ##
 ##      HECA Parser for cairo-airport.com/flight_**         ##
 ##                                                          ##
 ##           by: Chehab Mustafa-Hilmy                       ##
@@ -45,7 +45,7 @@ def enum(**enums):
     return type('Enum', (), enums)
 
 def HECAVersion():
-    return 2.3
+    return "2.3.1"
 
 class HECAParser(HTMLParser):
 # '''

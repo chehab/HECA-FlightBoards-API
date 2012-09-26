@@ -12,12 +12,12 @@ from HECAlib import HECAParser
 
 
 # Create instance of GET request
-get = cgi.FieldStorage()
+GET = cgi.FieldStorage()
 
 
 ### No Request render a html page.
 if len(GET.keys()) == 0:
-    with open( "hello.html" , 'r') as f:
+    with open( "templetes/hello.html" , 'r') as f:
         read_data = f.read()
     f.closed
     print "Content-type: text/html\r\n\r\n"

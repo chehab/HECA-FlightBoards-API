@@ -1,0 +1,166 @@
+<html>
+    <head>
+                
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <title>HECA API | Experimental APIs </title>
+                
+        <link rel="stylesheet" href="../style.css" type="text/css">
+        
+    </head>
+    
+    
+    <!-- FlexSlider pieces -->
+	<link rel="stylesheet" href="theme/flexslider.css" type="text/css" media="screen" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<script src="theme/jquery.flexslider-min.js"></script>
+    <script type="text/javascript">
+		$(window).load(function() {
+			$('.flexslider').flexslider({
+			  animation: "slide",
+			  controlsContainer: ".flex-container"
+		  });
+		});
+	</script>
+    
+    <style>
+    .beta{
+        right: -103;
+        top: -11;
+        position: relative;
+        font-size: 10px;
+        
+/*        -webkit-transform: rotate(7deg) ;
+        -moz-transform: rotate(7deg) ;
+        -o-transform: rotate(7deg) ; */
+    }
+    .stretch{
+        -webkit-transform: scale(1, 2);
+        -moz-transform: scale(1, 2);
+        -o-transform: scale(1, 2);
+    }
+    .innershadow {
+      -moz-box-shadow:    inset 0px 1px 5px rgba(0,0,0,0.50);
+      -webkit-box-shadow: inset 0px 1px 5px rgba(0,0,0,0.50);
+      box-shadow:         inset 0px 1px 5px rgba(0,0,0,0.50);
+    }
+    .shadow {
+      -moz-box-shadow:    0px 2px 5px rgba(0,0,0,0.50);
+      -webkit-box-shadow: 0px 2px 5px rgba(0,0,0,0.50);
+      box-shadow:         0px 2px 5px rgba(0,0,0,0.50);
+    }
+        table{
+            width:400px;
+            margin: auto;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border-collapse:collapse;
+            color:rgba(255, 255, 255, 0.75)
+        }
+        table,th, td
+        {
+    /*         border: 2px solid rgba(203,229,238,1); */
+            text-align:center;
+            vertical-align:middle;
+            padding: 2px;
+        }
+    </style>
+        
+        <h2 class="influads_img"> <a>  HECA/CAI FlightBoard API <div class="beta">v2.1 Beta</div></a>
+            <p>Access Cairo Int. Airport Flight Board<br/>for Arrival, Departure or Both through JSON or XML formats</p>
+        <!-- <br/> <a href="JSON">  JSON </a> | <a href="XML">  XML </a> -->
+        <br/> <br/> 
+        
+<div style="width:550px;margin: auto;">
+<div class="flex-container">
+    <div class="flexslider innershadow" style="padding-top:5px;padding-bottom:5px">
+        <ul class="slides">
+            <li>
+                <br/>
+                <div style=" margin: auto; width: 440px; text-align: left;">
+                    <strong>GET Request:</strong>
+                    <ul>
+                        <li>Request Return Type JSON or XML
+                            <ul>
+                                <li>[ <strong>json</strong> | <strong>xml</strong> ] <strong>=</strong> [ <strong>true</strong> | <strong>1</strong> ]</li>
+                                <li><strong>type =</strong> [ <strong>json</strong> | <strong>xml</strong> ]</li>
+                            </ul>
+                        </li>
+                        <li>Request either Arrival, Departure or Both
+                            <ul>
+                                <li>[ <strong>arrival</strong> | <strong>departure</strong> | <strong>both</strong> ] <strong>=</strong> [ <strong>true</strong> | <strong>1</strong> ]</li>
+                                <li><strong>flights=</strong> [ <strong>arrival</strong> | <strong>departure</strong> | <strong>both</strong> ]</li>
+                            </ul>
+                        </li>
+                        <li>Request Example
+                            <ul>
+                                <li>/?type=json&amp;arrival=1</li>
+                                <li>/?json=true&amp;flights=arrival</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <br/>
+            </li>
+            <li>
+                <div style=" margin: auto; width: 475px; text-align: left;">
+                <h5>
+                    Upcoming:
+                    <ul>
+                        <li>IATA, ICAO Airports Codes</li>
+                        <li>Airports Information</li>
+                        <li>Get updated flights only</li>
+                        <li>Get flights within a time range</li>
+                        <li>Flight Search via flight#, distention, origin and Airline</li>
+                    </ul>
+                </h5>
+                </div>
+            </li>
+            <!-- - ->
+            <li>
+                <div style=" margin: auto; width: 440px; text-align: left;">
+                <h5>
+                    Update Log:
+                    <ul>
+                        <li>v2.1.1 (Beta)
+                            <ul>
+                                <li>Minor Bug-fixes</li>
+                            </ul>
+                        </li>
+                        <li>v2.1 (Beta)
+                            <ul>
+                                <li>Minor Bug-fixes</li>
+                                <li>Minor Enhancement</li>
+                            </ul>
+                        </li>
+                        <li>v2.0 (Beta)
+                            <ul>
+                                <li>Rewritten</li>
+                                <li>Less memory footprint</li>
+                                <li>Faster Execution</li>
+                            </ul>
+                        </li>
+                        <li>v1.3 (alpha)
+                            <ul>
+                                <li>Minor Enhancement</li>
+                            </ul>
+                        </li>
+                        <li>v1.0 (alpha)</li>
+                    </ul>
+                </h5>
+                </div>
+            </li>
+            <! -- -->
+        </ul>
+    </div>
+</div>
+</div>
+    
+        <br/> <br/> 
+        Contact <a href="mailto:apis@chehab.me">  apis@chehab.me  </a>  </h2>
+        
+</html>
+
+
+

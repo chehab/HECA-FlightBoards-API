@@ -1,4 +1,6 @@
 # -*- coding: UTF-8 -*-
+#!/usr/bin/python
+
 ##############################################################
 ##############################################################
 ##                                                          ##
@@ -39,7 +41,7 @@
 
 from HTMLParser import HTMLParser
 from urllib import urlopen
-import json
+import json, yaml
 
 def enum(**enums):
     return type('Enum', (), enums)
@@ -48,24 +50,23 @@ def HECAVersion():
     return "2.3.1"
 
 class HECAParser(HTMLParser):
-# '''
-#     subclasing HTMLParser to customize HECA parsing results
-#     and provide more custom methods HECA specific  
-# '''    
+'''
+     subclasing HTMLParser to customize HECA parsing results
+     and provide more custom methods HECA-API specific  
+'''
 
-    #Def enums 
+    ## Def enums 
     HECAHeading = enum(Arrival=0, Departure=1, Both=2)
     HECAFormat  = enum(JSON=0, XML=1, Plain=2)
     DebugMode   = enum(Off=False, On=True, Verbose=2, file=3)
 
     #####################
     flight        = {}
-    # flightsList   = []
     arrivalList   = []
     departureList = []
     flightTemplet = {"airline":"","flightno":"","date":"","sch":"","eta":"","actual":"",
                      "airport":"","via":"","terminal":"","hall":"","status":""}
-                 
+
     #####################
     flightmode   = None
     insertIndex  = 0
@@ -76,21 +77,21 @@ class HECAParser(HTMLParser):
     openRow     = False
     insertCell  = False
     debug       = DebugMode.Off
-    watch       = None #{"key":"watchValue" | True}
+    watch       = None
 
 
 ##########################################################################################
-### Perant over-ride #####################################################################
-    
+### Super over-ride ######################################################################
+
 
     def handle_starttag(self, tag, attrs):
-        #Open New Raw in case "<tr align=center>"
+        # Open New Raw in case "<tr align=center>"
         if len(attrs) and not self.openRow:
             if tag == "tr" and attrs[0] == ('align', 'center'):
                 self.openRow = True
                 self.flight = {"airline":"","flightno":"","date":"","sch":"","eta":"","actual":"",
                                  "airport":"","via":"","terminal":"","hall":"","status":""}
-        #New Cell if Raw Open add <td> tag found
+        # New Cell if Raw Open add <td> tag found
         # self.insertCell = True if tag == "td" and self.openRow else False
         if self.openRow:
             if tag == "td":
@@ -99,8 +100,7 @@ class HECAParser(HTMLParser):
                 self.insertCell = True
             else:
                 self.insertCell = False
-        
-    
+    #end:handle_starttag
 
 
     def handle_endtag(self, tag):
@@ -108,20 +108,17 @@ class HECAParser(HTMLParser):
             self.openRow = False
             self.currentIndex = 0
             self.__debug_flight__()
-            # if self.flightmode == None:
-            #     self.flightsList.append(self.flight)
             if self.flightmode == self.HECAHeading.Arrival:
                 self.arrivalList.append(self.flight)
             if self.flightmode == self.HECAHeading.Departure:
                 self.departureList.append(self.flight)
-        # if tag == "td" and self.titles[ self.currentIndex ] not in ["date","sch","eta"]:
-        #     pass
         if tag == "td" and self.insertCell:
             self.insertCell = False
             if self.currentIndex == 10:
                 self.currentIndex = 0
             else:
                 self.currentIndex += 1
+    #end:handle_endtag
 
 
     def handle_data(self, data):   
@@ -140,27 +137,31 @@ class HECAParser(HTMLParser):
                 for wky in self.watch.keys():
                     if self.watch[wky] == True and self.watch[wky] == self.titles[ self.currentIndex ]:
                         print "@ {} : {} :: {}".format(wky,self.flight[ self.titles[ self.currentIndex ] ],data)
+    #end:handle_data
 
 
 ##########################################################################################
 ### Generate #############################################################################
 
-    
+
     def HECARefreshFlightData(self):
         self.HECAGenerateFlightData()
-    
-    
+    #end:HECARefreshFlightData
+
+
     def HECAUpdateFlightData(self):
         self.HECAGenerateFlightData()
-    
-    
+    #end:HECAUpdateFlightData
+
+
     def HECAGenerateFlightData(self):
         if self.debug:
             print " %>Parsing Flight Data"
         self.HECAGenerateArrival()
         self.HECAGenerateDeparture()
-    
-    
+    #end:HECAGenerateFlightData
+
+
     def HECAGenerateArrival(self):
         if self.debug:
             print " %>Parsing Arrival Data"
@@ -170,8 +171,9 @@ class HECAParser(HTMLParser):
         f.close()
         self.flightmode = None
         self.arrivalList.reverse()
-    
-    
+    #end:HECAGenerateArrival
+
+
     def HECAGenerateDeparture(self):
         if self.debug:
             print " %>Parsing Departure Data"
@@ -181,8 +183,9 @@ class HECAParser(HTMLParser):
         f.close()
         self.flightmode = None
         self.departureList.reverse()
-    
-    
+    #end:HECAGenerateDeparture
+
+
 ##########################################################################################
 ### Return JSON ##########################################################################
 
@@ -202,7 +205,8 @@ class HECAParser(HTMLParser):
             if not self.arrivalList and not self.departureList:
                 self.HECAGenerateFlightData()
             return json.dumps( { "arrival":self.arrivalList, "departure":self.departureList } )
-    
+    #end:HECAGetAsJSON
+
 
     def HECAGetArrivalAsJSON(self):
         if self.debug:
@@ -210,7 +214,8 @@ class HECAParser(HTMLParser):
         if not self.arrivalList:
             self.HECAGenerateArrival()
         return json.dumps( {"Arrival":self.arrivalList} )
-    
+    #end:HECAGetArrivalAsJSON
+
 
     def HECAGetDepartureAsJSON(self):
         if self.debug:
@@ -218,6 +223,8 @@ class HECAParser(HTMLParser):
         if not self.departureList:
             self.HECAGenerateDeparture()
         return json.dumps( {"departure":self.departureList} )
+    #end:HECAGetArrivalAsJSON
+
 
 ##########################################################################################
 ### Return XML ###########################################################################
@@ -240,25 +247,31 @@ class HECAParser(HTMLParser):
         
         if self.debug:
             print " %>Generating XML"
-        
-    
+    #end:HECAGetAsXML
+
 
     def HECAGetArrivalAsXML(self, XMLTag=True):
         if self.debug:
             print " %>Generating Arrival XML"
+        
         if not self.arrivalList:
             self.HECAGenerateArrival()
+        
         xmlexport = '<?xml  version="1.0"?>\n\n\t<HECAFlights>\n' if XMLTag else ""
         xmlexport += "\n\t\t<arrival>\n"
+        
         for fl in self.arrivalList:
             xmlexport += "\n\t\t\t<flight>"
             for key in self.titles:
                 xmlexport += "\n\t\t\t\t<{0}>{1}</{2}>".format(key, fl[key], key)
             xmlexport += "\n\t\t\t</flight>\n"
+            
         xmlexport += "\n\t\t</arrival>\n"
         xmlexport += '\n\t</HECAFlights>\n' if XMLTag else ""
+        
         return xmlexport
-    
+    #end:HECAGetArrivalAsXML
+
 
     def HECAGetDepartureAsXML(self, XMLTag=True):
         if self.debug:
@@ -275,7 +288,8 @@ class HECAParser(HTMLParser):
         xmlexport += "\n\t\t</departure>\n"
         xmlexport += '\n\t</HECAFlights>\n' if XMLTag else ""
         return xmlexport
-    
+    #end:HECAGetDepartureAsXML
+
 
 ##########################################################################################
 ### File Export ##########################################################################
@@ -283,13 +297,18 @@ class HECAParser(HTMLParser):
 
     def HECAExportToFile(self, filename, _format, _heading=HECAHeading.Both):
         pass
-    
+    #end:HECAExportToFile
+
+
     def HECAExportArrivalToFile(self, filename, _format):
         pass
-    
+    #end:HECAExportArrivalToFile
+
+
     def HECAExportDepartureToFile(self, filename, _format):
         pass
-    
+    #end:HECAExportDepartureToFile
+
 
 ### Export to JSON #######################################################################
 
@@ -297,45 +316,46 @@ class HECAParser(HTMLParser):
         self.__writeToFile__(filename, json.dumps( { "arrival":self.arrivalList, "departure":self.departureList } ) )
         if self.debug:
             print " %>Exporting JSON file"
-        
+    #end:HECAExportToJSONFile
     
 
     def HECAExportArrivalToJSONFile(self, filename="HECA-Arrival.json"):
         self.__writeToFile__(filename, json.dumps( { "arrival":self.arrivalList } ) )
         if self.debug:
             print " %>Exporting Arrival JSON file"
-        
+    #end:HECAExportArrivalToJSONFile
     
 
     def HECAExportDepartureToJSONFile(self, filename="HECA-Departure.json"):
         self.__writeToFile__(filename, json.dumps( { "departure":self.departureList } ) )
         if self.debug:
             print " %>Exporting Departure JSON file"
-        
+    #end:HECAExportDepartureToJSONFile
     
 
 ### Export to XML ########################################################################
+
 
     def HECAExportToXMLFile(self, filename="HECA-flighdata.xml", _heading=HECAHeading.Both):
         self.__writeToFile__(filename, self.HECAGetAsXML() )
         if self.debug:
             print " %>Generating XML File"    
-        
-    
+    #end:HECAExportToXMLFile
+
 
     def HECAExportArrivalToXMLFile(self, filename="HECA-Arrival.xml"):
         self.__writeToFile__(filename, self.HECAGetArrivalAsXML() )
         if self.debug:
             print " %>Generating Arrival XML file"
-        
-    
+    #end:HECAExportArrivalToXMLFile
+
 
     def HECAExportDepartureToXMLFile(self, filename="HECA-Departure.xml"):
         self.__writeToFile__(filename, self.HECAGetDepartureAsXML() )
         if self.debug:
             print " %>Generating Departure XML"
-        
-    
+    #end:HECAExportDepartureToXMLFile
+
 
 ##########################################################################################
 ### debug ################################################################################
@@ -348,15 +368,16 @@ class HECAParser(HTMLParser):
         f = open( filename, 'w')
         f.write( writedata )
         f.close()
+    #end:__writeToFile__
 
 
     def __debug_flightList__(self, force=False):
         if force or self.debug == self.DebugMode.Verbose:
-            # for row in self.flightsList:
             for row in self.arrivalList:
                 print "\n####################################\n"
                 for cell in self.titles:
                     print "   "+ cell + ": " + row[cell] + "\n"
+    #end:__debug_flightList__
 
 
     def __debug_flight__(self, force=False):
@@ -365,8 +386,8 @@ class HECAParser(HTMLParser):
             for col in self.titles:
                 print "   "+ col + ": " + self.flight[col] + "\n"
             print "######################################\n"
-        
-    
+    #end:__debug_flight__
+
 
 ##########################################################################################
 ################################################################# End of Implemntation ###           

@@ -4,17 +4,16 @@
 ##############################################################
 ##############################################################
 ##                                                          ##
-##      HECA-Fb v2.3           HECA/CAI Flight Baord        ##
-##      HECA Parser for cairo-airport.com/flight_**         ##
+##      HECA-FB v2.3           HECA/CAI Flight Baord        ##
+##      HECA Parser for  cairo-airport.com/flight_**        ##
 ##      HECA CLI v0.1                                       ##
-##      HECA CLI tool for runing/testing HECA/CAI-Fb        ##
+##      HECA CLI tool for runing/testing HECA/CAI-FB        ##
 ##                                                          ##
-##           by: Chehab Mustafa-Hilmy                       ##
+##       Auther: Chehab Mustafa-Hilmy                       ##
 ##          url: Chehab.me                                  ##
 ##      contact: apis@chehab.me                             ##
 ##                                                          ##
 ##############################################################
-
 ##############################################################
 ##                                                          ##
 ##  Usage:                                                  ##
@@ -40,6 +39,7 @@
 ##    Rest: TBA                                             ##
 ##                                                          ##
 ##############################################################
+##############################################################
 
 import sys
 
@@ -50,22 +50,23 @@ from HECAlib import *
 
 def HECACLIVersion():
     return 0.1
+#end:HECACLIVersion
 
 class Callable:
     def __init__(self, anycallable):
         self.__call__ = anycallable
+    #end:__init__
+#end:Callable
 
 class HECA_CLI:
     
-    
     operations = []
     operation  = None
-    format     = None
+    _format    = None
     flight     = None
     fileName   = None
     exportDir  = None
     
-        
     def cli_exec(self, args):
         
         if (len(args) > 1):
@@ -91,7 +92,7 @@ class HECA_CLI:
                         print "Runing In Debug Mode.."
                         print "arglen: " + str(len(arg.lower())) +" arg( "+ str(1)+" / "+ str(len(args))+" )"
                         print "operation: " + str(self.operation)
-                        print "format: " + str(self.format)
+                        print "_format: " + str(self._format)
                         print "flight: " + str(self.flight)
                         print
                 
@@ -108,9 +109,9 @@ class HECA_CLI:
             self.operation.append("EXPORT")
         # Selected Format.
         if argu[8:11] == "xml" or argu[9:12] == "xml":
-            self.format = "XML"
+            self._format = "XML"
         elif argu[8:12] == "json" or argu[9:13] == "json":
-            self.format = "JSON"
+            self._format = "JSON"
         # Selected Flight.
         if len(argu) > 10:
             if argu[14:21] == "arrival" or argu[13:20] == "arrival":
@@ -159,9 +160,9 @@ class HECA_CLI:
             self.operation = "PRINT"
         # Selected Format.
         if argu[2] == "j":
-            self.format = "JSON"
+            self._format = "JSON"
         elif argu[2] == "x":
-            self.format = "XML"
+            self._format = "XML"
         # Selected Flight.
         if len(argu) > 3:
             if argu[3] == "a":
@@ -192,7 +193,7 @@ class HECA_CLI:
         print "       <flight>"
         print "          departure: <d|departure> [-exd] [--Print-XML-Departure]\n"
         print "            arrival: <a|arrival> [-pja] [--Export-JSON-Arrival]\n"
-    
-    # help = Callable(help)
+    help = Callable(help)
+    #end:help_Callable
 
         

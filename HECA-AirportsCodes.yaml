@@ -1,0 +1,79 @@
+Airports:
+    Asmara:  
+      IATA:ASM
+      ICAO: HHAS
+      City:Asmara
+      Country:Eritrea
+    Riyadh:  
+      IATA:RUH
+      ICAO:OERK
+      City:Riyadh
+      Country:Saudi Arabia
+    Bangkok:  
+      IATA:BKK
+      ICAO:VTBS
+      City:"Bang Phli, Samut Prakan"
+      Country:Thailand
+    johannesburg:  
+      IATA:JNB
+      ICAO:FAJS
+      City:"Kempton ParkEkurhuleni, Gauteng"
+      Country:South Africa
+    Beijing:  
+      IATA:PEK
+      ICAO:ZBAA
+      City:'Chaoyang District, Beijing'
+      Country:China
+    Kano:  
+      IATA:KAN
+      ICAO:DNKN
+      City:Kano
+      Country:Nigeria
+    Jeddah:
+      IATA:JED
+      ICAO:OEJN
+      City:Jeddah
+      Country:Saudi Arabia
+    Bahrain:
+      IATA:BAH
+      ICAO:OBBI
+      City:Al Muharraq
+      Country:Bahrain
+    Abu Dhabi:
+      IATA:AUH
+      ICAO:OMAA
+      City:Abu Dhabi
+      Country:United Arab Emirates
+    Aden:
+      IATA:ADE
+      ICAO:OYAA
+      City:Aden
+      Country:Yemen
+    Frankfurt:
+      IATA:FRA
+      ICAO:EDDF
+      City:Frankfurt
+      Country:German
+    Casablanca:
+      IATA:CAS
+      ICAO:GMMC
+      City:Casablanca
+      Country:Morocco
+    Kuwait:
+      IATA:KWI
+      ICAO:OKBK
+      City:Al Farwaniyah
+      Country:Kuwait
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      

@@ -31,7 +31,7 @@ else:
         ### format=flight ################################################
             if ky == 'json':
                 returnType = "json"; continue
-                elif GET[ky].value == "arrival":
+                if GET[ky].value == "arrival":
                     flightData = "arrival"; continue
                 elif GET[ky].value == "departure":
                     flightData = "departure"; continue
@@ -40,7 +40,7 @@ else:
             ################################################
             if ky == 'xml':
                 returnType = "xml"; continue
-                elif GET[ky].value == "arrival":
+                if GET[ky].value == "arrival":
                     flightData = "arrival"; continue
                 elif GET[ky].value == "departure":
                     flightData = "departure"; continue
@@ -49,14 +49,14 @@ else:
         ### flight=format ################################################
             if ky == 'arrival':
                 flightData = "arrival"
-                elif GET[ky].value == "json":
+                if GET[ky].value == "json":
                     returnType = "json"; continue
                 elif GET[ky].value == "xml":
                     returnType = "xml"; continue
             ################################################
             if ky == 'departure':
                 flightData = "departure"
-                elif GET[ky].value == "json":
+                if GET[ky].value == "json":
                     returnType = "json"; continue
                 elif GET[ky].value == "xml":
                     returnType = "xml"; continue

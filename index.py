@@ -30,7 +30,7 @@ else:
         for ky in GET.keys():
         ### format=flight ################################################
             if ky == 'json':
-                returnType = "json"; continue
+                returnType = "json"
                 if GET[ky].value == "arrival":
                     flightData = "arrival"; continue
                 elif GET[ky].value == "departure":
@@ -39,7 +39,7 @@ else:
                     flightData = "both"; continue
             ################################################
             if ky == 'xml':
-                returnType = "xml"; continue
+                returnType = "xml"
                 if GET[ky].value == "arrival":
                     flightData = "arrival"; continue
                 elif GET[ky].value == "departure":

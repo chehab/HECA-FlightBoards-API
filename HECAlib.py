@@ -50,10 +50,10 @@ def HECAVersion():
     return "2.3.1"
 
 class HECAParser(HTMLParser):
-'''
+    '''
      subclasing HTMLParser to customize HECA parsing results
      and provide more custom methods HECA-API specific  
-'''
+    '''
 
     ## Def enums 
     HECAHeading = enum(Arrival=0, Departure=1, Both=2)

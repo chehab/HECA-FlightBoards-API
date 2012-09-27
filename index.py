@@ -1,22 +1,19 @@
-# -*- coding: UTF-8 -*-
 #!/usr/bin/python
+# -*- coding: UTF-8 -*-
 # export PYTHONIOENCODING=utf-8
 
-# Import modules for CGI handling 
-import sys, cgi
-
-#for deugging
-import cgitb; cgitb.enable()
-# import cgitb; cgitb.enable(display=0, logdir="")
+# Import modules 
+import sys
+# Import modules for CGI deugging
+import cgi, cgitb; cgitb.enable()
 
 #Importing HECA/CAI flightdata parser
 from HECAlib import HECAParser
 
-
 # Create instance of GET request
 GET = cgi.FieldStorage()
 
-#http status code
+# http status code
 statusCode = "400"
 
 ### No Request render a html page.
@@ -124,4 +121,3 @@ else:
         print '<h2 style="font-weight: bold;">An Error was Encountered,'
         print "<br/>Try Agian Later."
         print '<br/><br/> Contact <a href="mailto:apis@chehab.me">  apis@chehab.me  </a>  </h2>'
-    

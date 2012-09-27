@@ -1,19 +1,23 @@
 # -*- coding: UTF-8 -*-
 #!/usr/bin/python
+# export PYTHONIOENCODING=utf-8
 
 # Import modules for CGI handling 
 import sys, cgi
 
-#enable deugging
+#for deugging
 import cgitb; cgitb.enable()
+# import cgitb; cgitb.enable(display=0, logdir="")
 
-# Import modules for HECA/CAI flightdata parser
+#Importing HECA/CAI flightdata parser
 from HECAlib import HECAParser
 
 
 # Create instance of GET request
 GET = cgi.FieldStorage()
 
+#http status code
+statusCode = "400"
 
 ### No Request render a html page.
 if len(GET.keys()) == 0:

@@ -108,6 +108,15 @@ class HECAParser(HTMLParser):
             self.openRow = False
             self.currentIndex = 0
             self.__debug_flight__()
+            # if len(self.flight["airport"]):
+                #self.flight["airport"] = self.flight["airport"] + " -asd"
+            if self.HECAisAPExists(self.flight["airport"]):
+                #APcodes = self.HECAAppendAPCodes( self.flight["airport"] )
+                #self.flight["IATA"] = str(APcodes["IATA"])
+                #self.flight["ICAO"] = APcodes["ICAO"]
+                #self.flight["City"] = APcodes["City"]
+                #self.flight["Country"] = APcodes["Country"]
+                self.flight.update( self.HECAAppendAPCodes( self.flight["airport"] ) )
             if self.flightmode == self.HECAHeading.Arrival:
                 self.arrivalList.append(self.flight)
             if self.flightmode == self.HECAHeading.Departure:
@@ -128,9 +137,6 @@ class HECAParser(HTMLParser):
                 fieldData += data[i]
         if self.insertCell:
             self.flight[ self.titles[ self.currentIndex ] ] = fieldData.strip()
-            if self.titles[self.currentIndex] == "airport":
-                if self.HECAisAPExists(fieldData.strip()):
-                    self.flight.update( self.HECAAppendAPCodes( fieldData.strip() ) )
             
         if self.watch and self.openRow:# and self.insertCell:
             if self.watch == "all":
@@ -364,11 +370,11 @@ class HECAParser(HTMLParser):
 ### AP Codes ########################################################################
 
 
-    def HECAAppendAPCodes(self,AP):
+    def HECAAppendAPCodes(self,searchPhrase):
         with open( "HECA-AirportsCodes.yaml" , 'r') as f:
             read_data = f.read()
         APCodes = yaml.load(read_data)
-        return APCodes[AP]
+        return APCodes[searchPhrase]
 
     def HECAisAPExists(self,searchPhrase):
         with open( "HECA-AirportsCodes.yaml" , 'r') as f:
@@ -377,13 +383,10 @@ class HECAParser(HTMLParser):
         if searchPhrase in APCodes:
             return True
         else:
-            with open("HECA-AirportsCodes.yaml", "a") as myfile:
-                myfile.write('''
-{}:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A'''.format(searchPhrase))
+            with open("HECA-AirportsCodes.yaml", "a") as f:
+                #f.write("\n{}:\n  IATA: N/A\n  ICAO: N/A\n  City: N/A\n  Country: N/A".format(searchPhrase))
+                f.write("\n"+searchPhrase+":\n  IATA: N/A\n  ICAO: N/A\n  City: N/A\n  Country: N/A")
+        return False
     #END:HECAisAPExists
 
 

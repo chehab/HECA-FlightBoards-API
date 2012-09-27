@@ -1,78 +1,350 @@
 Asmara:  
-  IATA:ASM
+  IATA: ASM
   ICAO: HHAS
-  City:Asmara
-  Country:Eritrea
+  City: Asmara
+  Country: Eritrea
 Riyadh:  
-  IATA:RUH
-  ICAO:OERK
-  City:Riyadh
-  Country:Saudi Arabia
+  IATA: RUH
+  ICAO: OERK
+  City: Riyadh
+  Country: 'Saudi Arabia'
 Bangkok:  
-  IATA:BKK
-  ICAO:VTBS
-  City:"Bang Phli, Samut Prakan"
-  Country:Thailand
+  IATA: BKK
+  ICAO: VTBS
+  City: 'Bang Phli, Samut Prakan'
+  Country: Thailand
 johannesburg:  
-  IATA:JNB
-  ICAO:FAJS
-  City:"Kempton ParkEkurhuleni, Gauteng"
-  Country:South Africa
+  IATA: JNB
+  ICAO: FAJS
+  City: 'Kempton ParkEkurhuleni, Gauteng'
+  Country: 'South Africa'
 Beijing:  
-  IATA:PEK
-  ICAO:ZBAA
-  City:'Chaoyang District, Beijing'
-  Country:China
+  IATA: PEK
+  ICAO: ZBAA
+  City: 'Chaoyang District, Beijing'
+  Country: China
 Kano:  
-  IATA:KAN
-  ICAO:DNKN
-  City:Kano
-  Country:Nigeria
+  IATA: KAN
+  ICAO: DNKN
+  City: Kano
+  Country: Nigeria
 Jeddah:
-  IATA:JED
-  ICAO:OEJN
-  City:Jeddah
-  Country:Saudi Arabia
+  IATA: JED
+  ICAO: OEJN
+  City: Jeddah
+  Country: 'Saudi Arabia'
 Bahrain:
-  IATA:BAH
-  ICAO:OBBI
-  City:Al Muharraq
-  Country:Bahrain
+  IATA: BAH
+  ICAO: OBBI
+  City: 'Al Muharraq'
+  Country: Bahrain
 Abu Dhabi:
-  IATA:AUH
-  ICAO:OMAA
-  City:Abu Dhabi
-  Country:United Arab Emirates
+  IATA: AUH
+  ICAO: OMAA
+  City: 'Abu Dhabi'
+  Country: 'United Arab Emirates'
 Aden:
-  IATA:ADE
-  ICAO:OYAA
-  City:Aden
-  Country:Yemen
+  IATA: ADE
+  ICAO: OYAA
+  City: Aden
+  Country: Yemen
 Frankfurt:
-  IATA:FRA
-  ICAO:EDDF
-  City:Frankfurt
-  Country:German
+  IATA: FRA
+  ICAO: EDDF
+  City: Frankfurt
+  Country: German
 Casablanca:
-  IATA:CAS
-  ICAO:GMMC
-  City:Casablanca
-  Country:Morocco
+  IATA: CAS
+  ICAO: GMMC
+  City: Casablanca
+  Country: Morocco
 Kuwait:
-  IATA:KWI
-  ICAO:OKBK
-  City:Al Farwaniyah
-  Country:Kuwait
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+  IATA: KWI
+  ICAO: OKBK
+  City: 'Al Farwaniyah'
+  Country: Kuwait
+Doha:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Larnaca:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Beirut:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Dubai:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Aswan:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Hurghada:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Luxor:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Algiers:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+HAIL:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Tunis:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Paris:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Amman:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Damascus:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Marsa  Alam:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Khartoum:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Abuja international:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Istanbul:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+JUBA:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Lagos:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Aleppo:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Sharm El Sheikh:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Madina:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Accra:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Madrid:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Gassim:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Yanbu:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Taif:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+London:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Sabiha:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Sharjah:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Tripoli:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Rome:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Addis Ababa:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Amsterdam:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Bucharest:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Sanaa:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Warsaw:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Dammam:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Muscat.:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Entebbe:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Nairobi:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Tabuk:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Solaimania:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Malpensa:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Abu Simbel:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Dar-es Salaam:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Benghazi:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Abha:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Alexandria- Borg El-arab:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Geneva:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Moscow-Domodeovo:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Brussels:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Copenhagen:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Berlin-Schonefeld:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Athens:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Munich:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Budapest:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A

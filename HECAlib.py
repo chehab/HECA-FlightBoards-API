@@ -127,7 +127,10 @@ class HECAParser(HTMLParser):
             if data[i] != '\n' and data[i] != '\r' and data[i] != '\t' and data[i] != '  ':
                 fieldData += data[i]
         if self.insertCell:
-            self.flight[ self.titles[ self.currentIndex ] ] = fieldData.strip()     
+            self.flight[ self.titles[ self.currentIndex ] ] = fieldData.strip()
+            if self.titles[self.currentIndex] == "airport":
+                if self.HECAisAPExists(fieldData.strip()):
+                    self.flight.update( self.HECAAppendAPCodes( fieldData.strip() ) )
             
         if self.watch and self.openRow:# and self.insertCell:
             if self.watch == "all":
@@ -360,6 +363,12 @@ class HECAParser(HTMLParser):
 
 ### AP Codes ########################################################################
 
+
+    def HECAAppendAPCodes(self,AP):
+        with open( "HECA-AirportsCodes.yaml" , 'r') as f:
+            read_data = f.read()
+        APCodes = yaml.load(read_data)
+        return APCodes[AP]
 
     def HECAisAPExists(self,searchPhrase):
         with open( "HECA-AirportsCodes.yaml" , 'r') as f:

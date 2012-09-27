@@ -312,26 +312,27 @@ class HECAParser(HTMLParser):
 
 ### Export to JSON #######################################################################
 
+
     def HECAExportToJSONFile(self, filename="HECA-flighdata.json", _heading=HECAHeading.Both):
         self.__writeToFile__(filename, json.dumps( { "arrival":self.arrivalList, "departure":self.departureList } ) )
         if self.debug:
             print " %>Exporting JSON file"
     #end:HECAExportToJSONFile
-    
+
 
     def HECAExportArrivalToJSONFile(self, filename="HECA-Arrival.json"):
         self.__writeToFile__(filename, json.dumps( { "arrival":self.arrivalList } ) )
         if self.debug:
             print " %>Exporting Arrival JSON file"
     #end:HECAExportArrivalToJSONFile
-    
+
 
     def HECAExportDepartureToJSONFile(self, filename="HECA-Departure.json"):
         self.__writeToFile__(filename, json.dumps( { "departure":self.departureList } ) )
         if self.debug:
             print " %>Exporting Departure JSON file"
     #end:HECAExportDepartureToJSONFile
-    
+
 
 ### Export to XML ########################################################################
 
@@ -355,6 +356,26 @@ class HECAParser(HTMLParser):
         if self.debug:
             print " %>Generating Departure XML"
     #end:HECAExportDepartureToXMLFile
+
+
+### AP Codes ########################################################################
+
+
+    def HECAisAPExists(self,searchPhrase):
+        with open( "HECA-AirportsCodes.yaml" , 'r') as f:
+            read_data = f.read()
+        APCodes = yaml.load(read_data)
+        if searchPhrase in APCodes:
+            return True
+        else:
+            with open("HECA-AirportsCodes.yaml", "a") as myfile:
+                myfile.write('''
+{}:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A'''.format(searchPhrase))
+    #END:HECAisAPExists
 
 
 ##########################################################################################

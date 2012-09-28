@@ -64,332 +64,336 @@ Kuwait:
   City: 'Al Farwaniyah'
   Country: Kuwait
 Doha:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: DOH
+  ICAO: OTBD
+  City: Doha
+  Country: Qatar
 Larnaca:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ???
+  ICAO: ????
+  City: Unknown
+  Country: Unknown
 Beirut:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: BEY
+  ICAO: OLBA
+  City: Beirut
+  Country: Lebanon
 Dubai:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: DXB
+  ICAO: OMDB
+  City: Dubai
+  Country: 'United Arab Emirates'
 Aswan:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ASW
+  ICAO: HESN
+  City: Aswan
+  Country: Egypt
 Hurghada:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: HRG
+  ICAO: HEGN
+  City: Hurghada
+  Country: Egypt
 Luxor:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: LXR
+  ICAO: HELX
+  City: Luxor
+  Country: Egypt
 Algiers:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ALG
+  ICAO: DAAG
+  City: Algiers
+  Country: Algeria
 HAIL:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: HAS
+  ICAO: OEHL
+  City: "Ha'il"
+  Country: 'Saudi Arabia'
 Tunis:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: TUN
+  ICAO: DTTA
+  City: Tunis
+  Country: Tunisia
 Paris:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: CDG
+  ICAO: LFPG
+  City: Paris
+  Country: France
 Amman:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: AMM
+  ICAO: OJAI
+  City: Amman
+  Country: Jordan
 Damascus:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: DAM
+  ICAO: OSDI
+  City: Damascus
+  Country: Syria
 Marsa  Alam:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: RMF
+  ICAO: HEMA
+  City: 'Marsa Alam'
+  Country: Egypt
 Khartoum:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: KRT
+  ICAO: HSSS
+  City: Khartoum
+  Country: Sudan
 Abuja international:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ABV
+  ICAO: DNAA
+  City: Abuja
+  Country: Nigeria
 Istanbul:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: IST
+  ICAO: LTBA
+  City: Istanbul
+  Country: Turkey
 JUBA:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: JUB
+  ICAO: HSSJ
+  City: Juba
+  Country: 'South Sudan'
 Lagos:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: LOS
+  ICAO: DNMM
+  City: Lagos
+  Country: Nigeria
 Aleppo:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ALP
+  ICAO: OSAP
+  City: Aleppo
+  Country: Syria
 Sharm El Sheikh:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: SSH
+  ICAO: HESH
+  City: 'Sharm El-Sheikh'
+  Country: Egypt
 Madina:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: MED
+  ICAO: OEMA
+  City: Medina
+  Country: 'Saudi Arabia'
 Accra:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ACC
+  ICAO: DGAA
+  City: Accra
+  Country: Ghana
 Madrid:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: MAD
+  ICAO: LEMD
+  City: Madrid
+  Country: Spain
 Gassim:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ???
+  ICAO: ????
+  City: Unknown
+  Country: Unknown
 Yanbu:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: YNB
+  ICAO: OEYN
+  City: Yanbu
+  Country: 'Saudi Arabia'
 Taif:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: TIF
+  ICAO: OETF
+  City: "Ta’if"
+  Country: 'Saudi Arabia'
 London:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: LHR
+  ICAO: EGLL
+  City: London
+  Country: 'United Kingdom'
 Sabiha:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: SAW
+  ICAO: LTFJ
+  City: Istanbul
+  Country: Turkey
 Sharjah:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: SHJ
+  ICAO: OMSJ
+  City: Sharjah
+  Country: 'United Arab Emirates'
 Tripoli:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: TIP
+  ICAO: HLLT
+  City: Tripoli
+  Country: Libya
 Rome:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: FCO
+  ICAO: LIRF
+  City: Rome
+  Country: Italy
 Addis Ababa:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ADD
+  ICAO: HAAB
+  City: 'Addis Ababa'
+  Country: Ethiopia
 Amsterdam:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: AMS
+  ICAO: EHAM
+  City: Amsterdam
+  Country: Netherlands
 Bucharest:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: OTP
+  ICAO: LROP
+  City: Bucharest
+  Country: Romania
 Sanaa:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: SAH
+  ICAO: OYSN
+  City: "Sana'a"
+  Country: Yemen
 Warsaw:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: WAW
+  ICAO: EPWA
+  City: Warsaw
+  Country: Poland
 Dammam:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: DMM
+  ICAO: OEDF
+  City: Dammam
+  Country: 'Saudi Arabia'
 Muscat.:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: MCT
+  ICAO: OOMS
+  City: Muscat
+  Country: Oman
 Entebbe:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: EBB
+  ICAO: HUEN
+  City: Entebbe
+  Country: Uganda
 Nairobi:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: NBO
+  ICAO: HKJK
+  City: Nairobi
+  Country: Kenya
 Tabuk:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: TUU
+  ICAO: OETB
+  City: Tabuk
+  Country: 'Saudi Arabia'
 Solaimania:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ISU
+  ICAO: ORSU
+  City: Sulaymaniyah
+  Country: Iraq
 Malpensa:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: MXP
+  ICAO: LIMC
+  City: 'Somma Lombardo'
+  Country: Italy
 Abu Simbel:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ABS
+  ICAO: HEBL
+  City: Abu Simbel
+  Country: Egypt
 Dar-es Salaam:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: DAR
+  ICAO: HTDA
+  City: 'Dar es Salaam'
+  Country: Tanzania
 Benghazi:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: BEN
+  ICAO: HLLB
+  City: Benina
+  Country: Libya
 Abha:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: AHB
+  ICAO: OEAB
+  City: Abha
+  Country: 'Saudi Arabia'
 Alexandria- Borg El-arab:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: HBE
+  ICAO: HEBA
+  City: Alexandria
+  Country: Egypt
 Geneva:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Moscow-Domodeovo:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Brussels:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Copenhagen:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Berlin-Schonefeld:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Athens:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Munich:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Budapest:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Un registerd Airport:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Zurich:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Vienna:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Reykjavik- Keflavik:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
-Seoul:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: GVA
+  ICAO: LSGG
+  City: Geneva
+  Country: Switzerland
 Moscow:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: SVO
+  ICAO: UUEE
+  City: Moscow
+  Country: Russia
+Brussels:
+  IATA: BRU
+  ICAO: EBBR
+  City: Brussels
+  Country: Belgium
+Copenhagen:
+  IATA: CPH
+  ICAO: EKCH
+  City: Kastrup
+  Country: Denmark
+Berlin-Schonefeld:
+  IATA: SXF
+  ICAO: EDDB
+  City: Schönefeld
+  Country: Germany
+Athens:
+  IATA: ATH
+  ICAO: LGAV
+  City: Athens
+  Country: Greece
+Munich:
+  IATA: MUC
+  ICAO: EDDM
+  City: Munich
+  Country: Germany
+Budapest:
+  IATA: BUD
+  ICAO: LHBP
+  City: Budapest
+  Country: Hungary
+Un registerd Airport:
+  IATA: '???'
+  ICAO: '????'
+  Country: 'Un registerd'
+Zurich:
+  IATA: ZRH
+  ICAO: LSZH
+  City: Zurich
+  Country: Switzerland
+Vienna:
+  IATA: VIE
+  ICAO: LOWW
+  City: Vienna
+  Country: Austria
+Reykjavik- Keflavik:
+  IATA: KEF
+  ICAO: BIKF
+  City: Reykjavík
+  Country: Iceland
+Seoul:
+  IATA: ICN
+  ICAO: RKSI
+  City: Seoul
+  Country: 'South Korea'
+Moscow-Domodeovo:
+  IATA: DME
+  ICAO: UUDD
+  City: Moscow
+  Country: Russia
 Taba:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: TCP
+  ICAO: HETB
+  City: Taba
+  Country: Egypt
 LAMEZIA TERME:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: SUF
+  ICAO: LICA
+  City: Lamezia Terme
+  Country: Italy
 Erbil International Airport /Iraq:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: EBL
+  ICAO: ORER
+  City: 'Erbil, Ankawa'
+  Country: Iraq
+SOHAG:
+  IATA: HMB
+  ICAO: HEMK
+  City: Sohag
+  Country: Egypt

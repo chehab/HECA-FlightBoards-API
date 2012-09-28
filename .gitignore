@@ -1,0 +1,4 @@
+*.py[cod]
+templates/*
+HECA-Cache-Departures.yaml
+HECA-Cache-Arrivals.yaml

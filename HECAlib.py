@@ -376,6 +376,8 @@ class HECAParser(HTMLParser):
     def HECAisCacheAvailable(self, flightheadig = HECAHeading.Both):
         arrivalCacheStatus = False
         departureCacheStatus = False
+        if not self.timestamp:
+            self.timestamp = int(time.time())
         if flightheadig == self.HECAHeading.Arrival or flightheadig == self.HECAHeading.Both:
             if int(os.path.getmtime("HECA-Cache-Arrivals.yaml")) + 60*3 > self.timestamp:
                 if flightheadig == self.HECAHeading.Both:

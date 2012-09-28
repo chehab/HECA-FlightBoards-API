@@ -1,0 +1,381 @@
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Madina, date: Sep 29 2012, eta: '', flightno: MS676, hall: '1', sch: '03:25',
+  status: '', terminal: '3', via: ''}
+- {City: Abu Dhabi, Country: United Arab Emirates, IATA: AUH, ICAO: OMAA, actual: '',
+  airline: ETIHAD AIRLINE, airport: Abu Dhabi, date: Sep 29 2012, eta: '', flightno: EY651,
+  hall: '1', sch: '02:45', status: On-Time, terminal: '1', via: ''}
+- {City: Frankfurt, Country: German, IATA: FRA, ICAO: EDDF, actual: '', airline: LUFTHANSA,
+  airport: Frankfurt, date: Sep 29 2012, eta: '', flightno: LH584, hall: '1', sch: '02:25',
+  status: '', terminal: '3', via: ''}
+- {City: Al Farwaniyah, Country: Kuwait, IATA: KWI, ICAO: OKBK, actual: '', airline: EGYPT
+    AIR, airport: Kuwait, date: Sep 29 2012, eta: '', flightno: MS615, hall: '1',
+  sch: '02:20', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: YEMENIA, airport: Sanaa,
+  date: Sep 29 2012, eta: '', flightno: IY740, hall: '1', sch: '01:50', status: On-Time,
+  terminal: '1', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '', airline: EGYPT
+    AIR, airport: Jeddah, date: Sep 29 2012, eta: '', flightno: MS644, hall: '1',
+  sch: '01:45', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: TURKISH AIRLINES,
+  airport: Istanbul, date: Sep 29 2012, eta: '', flightno: TK692, hall: '1', sch: '01:40',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: ETHIOPIAN AIRLINES,
+  airport: Addis Ababa, date: Sep 29 2012, eta: '', flightno: ET452, hall: '1', sch: '01:30',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Aswan, date: Sep 29 2012, eta: '', flightno: MS093, hall: '1', sch: '01:30',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Luxor, date: Sep 29 2012, eta: '', flightno: MS063, hall: '1', sch: '01:30',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: ALITALIA, airport: Rome,
+  date: Sep 29 2012, eta: '', flightno: AZ894, hall: '3', sch: '01:20', status: On-Time,
+  terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Tripoli, date: Sep 29 2012, eta: '', flightno: MS832, hall: '1', sch: '01:00',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Sharm El Sheikh, date: Sep 29 2012, eta: '', flightno: MS023, hall: '1',
+  sch: '01:00', status: '', terminal: '3', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '', airline: SAUDI
+    ARABIAN AIRLINES, airport: Jeddah, date: Sep 29 2012, eta: '', flightno: SV309,
+  hall: '3', sch: '00:50', status: On-Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Sharjah, date: Sep 29 2012, eta: '', flightno: MS967, hall: '1', sch: '00:35',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: Petroleum Airline
+    Services, airport: Taba, date: Sep 29 2012, eta: '', flightno: PER012, hall: '',
+  sch: '00:30', status: No Passengers, terminal: '', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '', airline: EGYPT
+    AIR, airport: Jeddah, date: Sep 29 2012, eta: '', flightno: MS670, hall: '1',
+  sch: '00:15', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: TUNISAIR, airport: Tunis,
+  date: Sep 29 2012, eta: '', flightno: TU815, hall: '', sch: '00:01', status: Canceled,
+  terminal: '', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: MIRSLAND SUDAN
+    AIRLINES, airport: Khartoum, date: Sep 29 2012, eta: '', flightno: M7120, hall: '1',
+  sch: '00:01', status: On-Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: BRITISH AIRWAYS,
+  airport: London, date: Sep 28 2012, eta: '', flightno: BA155, hall: '1', sch: '23:55',
+  status: On-Time, terminal: '1', via: ''}
+- {City: Riyadh, Country: Saudi Arabia, IATA: RUH, ICAO: OERK, actual: '', airline: EGYPT
+    AIR, airport: Riyadh, date: Sep 28 2012, eta: '', flightno: MS648, hall: '1',
+  sch: '23:45', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Hurghada, date: Sep 28 2012, eta: '', flightno: MS344, hall: '1', sch: '22:55',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: Nile Air, airport: Taif,
+  date: Sep 28 2012, eta: '', flightno: NP102, hall: '1', sch: '22:45', status: On-Time,
+  terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: ALMASRIA  AIRLINES,
+  airport: Yanbu, date: Sep 28 2012, eta: '', flightno: UJ113, hall: '1', sch: '22:45',
+  status: On-Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: KENYA AIRWAYS,
+  airport: Khartoum, date: Sep 28 2012, eta: '', flightno: KQ320, hall: '1', sch: '22:30',
+  status: On-Time, terminal: '1', via: Nairobi}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Aswan, date: Sep 28 2012, eta: '', flightno: MS400, hall: '1', sch: '22:20',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: AEROFLOT, airport: Moscow,
+  date: Sep 28 2012, eta: '', flightno: SU400, hall: '1', sch: '22:15', status: On-Time,
+  terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: ALMASRIA  AIRLINES,
+  airport: Gassim, date: Sep 28 2012, eta: '', flightno: UJ485, hall: '1', sch: '22:05',
+  status: On-Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Luxor, date: Sep 28 2012, eta: '', flightno: MS364, hall: '1', sch: '21:35',
+  status: '', terminal: '3', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '', airline: SAUDI
+    ARABIAN AIRLINES, airport: Jeddah, date: Sep 28 2012, eta: '', flightno: SV305,
+  hall: '3', sch: '21:25', status: Canceled, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Sharm El Sheikh, date: Sep 28 2012, eta: '', flightno: MS440, hall: '1',
+  sch: '21:15', status: '', terminal: '3', via: ''}
+- {City: Casablanca, Country: Morocco, IATA: CAS, ICAO: GMMC, actual: '', airline: EGYPT
+    AIR, airport: Casablanca, date: Sep 28 2012, eta: '', flightno: MS848, hall: '1',
+  sch: '20:55', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Khartoum, date: Sep 28 2012, eta: '', flightno: MS856, hall: '1', sch: '20:50',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Beirut, date: Sep 28 2012, eta: '', flightno: MS712, hall: '1', sch: '20:45',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Amman, date: Sep 28 2012, eta: '', flightno: MS702, hall: '1', sch: '20:45',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Madina, date: Sep 28 2012, eta: '', flightno: MS678, hall: '1', sch: '20:40',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: ROYAL JORDANIAN,
+  airport: Amman, date: Sep 28 2012, eta: '', flightno: RJ507, hall: '3', sch: '20:30',
+  status: On-Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: Petroleum Airline
+    Services, airport: Sabiha, date: Sep 28 2012, eta: '', flightno: PER002, hall: '',
+  sch: '20:30', status: On-Time, terminal: '', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Sharm El Sheikh, date: Sep 28 2012, eta: '', flightno: MS316, hall: '1',
+  sch: '20:30', status: '', terminal: '3', via: ''}
+- {City: Riyadh, Country: Saudi Arabia, IATA: RUH, ICAO: OERK, actual: '', airline: EGYPT
+    AIR, airport: Riyadh, date: Sep 28 2012, eta: '', flightno: MS690, hall: '1',
+  sch: '20:15', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Lagos, date: Sep 28 2012, eta: '', flightno: MS876, hall: '1', sch: '20:10',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Larnaca, date: Sep 28 2012, eta: '', flightno: MS742, hall: '1', sch: '19:55',
+  status: '', terminal: '3', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '', airline: EGYPT
+    AIR, airport: Jeddah, date: Sep 28 2012, eta: '', flightno: MS672, hall: '1',
+  sch: '19:40', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: SAUDI ARABIAN
+    AIRLINES, airport: Madina, date: Sep 28 2012, eta: '', flightno: SV319, hall: '3',
+  sch: '19:31', status: On-Time, terminal: '1', via: ''}
+- {City: Al Farwaniyah, Country: Kuwait, IATA: KWI, ICAO: OKBK, actual: '', airline: El
+    gazera airline, airport: Kuwait, date: Sep 28 2012, eta: '', flightno: J9538,
+  hall: '3', sch: '19:30', status: On-Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: JUBA, date: Sep 28 2012, eta: '', flightno: MS860, hall: '1', sch: '19:30',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Budapest, date: Sep 28 2012, eta: '', flightno: MS552, hall: '1', sch: '18:55',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: KOREAN AIR,
+  airport: Seoul, date: Sep 28 2012, eta: '', flightno: KE953, hall: '', sch: '18:50',
+  status: Non Operational, terminal: '', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Abuja international, date: Sep 28 2012, eta: '', flightno: MS878, hall: '1',
+  sch: '18:50', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: SUDAN AIRWAYS,
+  airport: Khartoum, date: Sep 28 2012, eta: '', flightno: SD102, hall: '1', sch: '18:30',
+  status: Canceled, terminal: '1', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '', airline: SAUDI
+    ARABIAN AIRLINES, airport: Jeddah, date: Sep 28 2012, eta: '', flightno: SV303,
+  hall: '3', sch: '18:30', status: On-Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: MEA, airport: Beirut,
+  date: Sep 28 2012, eta: '', flightno: ME306, hall: '3', sch: '18:15', status: On-Time,
+  terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Damascus, date: Sep 28 2012, eta: '', flightno: MS722, hall: '1', sch: '18:05',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: ROYAL JORDANIAN,
+  airport: Amman, date: Sep 28 2012, eta: '', flightno: RJ505, hall: '3', sch: '18:00',
+  status: On-Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: AIR FRANCE,
+  airport: Paris, date: Sep 28 2012, eta: '17:50', flightno: AF508, hall: '3', sch: '18:00',
+  status: Estimated Arrival Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Tunis, date: Sep 28 2012, eta: '', flightno: MS844, hall: '1', sch: '17:55',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Dubai, date: Sep 28 2012, eta: '17:56', flightno: MS913, hall: '1', sch: '17:45',
+  status: '', terminal: '3', via: ''}
+- {City: Abu Dhabi, Country: United Arab Emirates, IATA: AUH, ICAO: OMAA, actual: '',
+  airline: EGYPT AIR, airport: Abu Dhabi, date: Sep 28 2012, eta: '', flightno: MS915,
+  hall: '1', sch: '17:40', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Algiers, date: Sep 28 2012, eta: '', flightno: MS846, hall: '1', sch: '17:35',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Doha, date: Sep 28 2012, eta: '', flightno: MS936, hall: '1', sch: '17:30',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Luxor, date: Sep 28 2012, eta: '', flightno: MS360, hall: '1', sch: '17:30',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: Air Libya,
+  airport: Benghazi, date: Sep 28 2012, eta: '', flightno: TLR147, hall: '1', sch: '17:30',
+  status: Canceled, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Hurghada, date: Sep 28 2012, eta: '', flightno: MS340, hall: '1', sch: '17:25',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Aswan, date: Sep 28 2012, eta: '', flightno: MS398, hall: '1', sch: '17:15',
+  status: '', terminal: '3', via: ''}
+- {City: Riyadh, Country: Saudi Arabia, IATA: RUH, ICAO: OERK, actual: '16:37', airline: SAUDI
+    ARABIAN AIRLINES, airport: Riyadh, date: Sep 28 2012, eta: '16:36', flightno: SV313,
+  hall: '3', sch: '17:00', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EMIRATES AIRLINES,
+  airport: Dubai, date: Sep 28 2012, eta: '17:03', flightno: EK923, hall: '1', sch: '17:00',
+  status: Estimated Arrival Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '16:11', airline: ERITRIEAN,
+  airport: Khartoum, date: Sep 28 2012, eta: '16:20', flightno: B8360, hall: '3',
+  sch: '16:50', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Sharm El Sheikh, date: Sep 28 2012, eta: '', flightno: MS310, hall: '1',
+  sch: '16:45', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: SYRIANAIR,
+  airport: Damascus, date: Sep 28 2012, eta: '16:58', flightno: RB203, hall: '1',
+  sch: '16:35', status: Estimated Arrival Time, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '16:31', airline: Nile Air,
+  airport: Gassim, date: Sep 28 2012, eta: '16:35', flightno: NP106, hall: '1', sch: '16:30',
+  status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '16:01', airline: SAUDI
+    ARABIAN AIRLINES, airport: Dammam, date: Sep 28 2012, eta: '16:05', flightno: SV321,
+  hall: '3', sch: '16:15', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '15:53', airline: QATAR
+    AIRWAYS, airport: Doha, date: Sep 28 2012, eta: '15:46', flightno: QR514, hall: '1',
+  sch: '16:15', status: Landed, terminal: '1', via: ''}
+- {City: Al Farwaniyah, Country: Kuwait, IATA: KWI, ICAO: OKBK, actual: '', airline: EGYPT
+    AIR, airport: Kuwait, date: Sep 28 2012, eta: '16:21', flightno: MS611, hall: '1',
+  sch: '16:15', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Dammam, date: Sep 28 2012, eta: '', flightno: MS682, hall: '1', sch: '16:00',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: BMI British
+    Midland, airport: London, date: Sep 28 2012, eta: '', flightno: BD771, hall: '1',
+  sch: '15:45', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '14:59', airline: nesma
+    airline, airport: Tabuk, date: Sep 28 2012, eta: '15:06', flightno: NE121, hall: '1',
+  sch: '15:41', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '15:33', airline: OMAN AIR,
+  airport: Muscat., date: Sep 28 2012, eta: '15:35', flightno: WY405, hall: '3', sch: '15:40',
+  status: Landed, terminal: '1', via: ''}
+- {City: Abu Dhabi, Country: United Arab Emirates, IATA: AUH, ICAO: OMAA, actual: '15:19',
+  airline: ETIHAD AIRLINE, airport: Abu Dhabi, date: Sep 28 2012, eta: '15:12', flightno: EY655,
+  hall: '1', sch: '15:35', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Abha, date: Sep 28 2012, eta: '', flightno: MS631, hall: '1', sch: '15:35',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '15:06', airline: ALITALIA,
+  airport: Rome, date: Sep 28 2012, eta: '14:58', flightno: AZ896, hall: '3', sch: '15:20',
+  status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Tripoli, date: Sep 28 2012, eta: '', flightno: MS830, hall: '1', sch: '15:10',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Reykjavik- Keflavik, date: Sep 28 2012, eta: '', flightno: MS3330, hall: '',
+  sch: '14:54', status: On-Time, terminal: '', via: ''}
+- {City: Riyadh, Country: Saudi Arabia, IATA: RUH, ICAO: OERK, actual: '', airline: EGYPT
+    AIR, airport: Riyadh, date: Sep 28 2012, eta: '', flightno: MS652, hall: '1',
+  sch: '14:45', status: '', terminal: '3', via: ''}
+- {City: Frankfurt, Country: German, IATA: FRA, ICAO: EDDF, actual: '', airline: LUFTHANSA,
+  airport: Frankfurt, date: Sep 28 2012, eta: '', flightno: LH582, hall: '1', sch: '14:40',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: SAUDI ARABIAN
+    AIRLINES, airport: Abha, date: Sep 28 2012, eta: '', flightno: SV323A, hall: '',
+  sch: '14:16', status: Non Operational, terminal: '', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '14:14', airline: SAUDI
+    ARABIAN AIRLINES, airport: Abha, date: Sep 28 2012, eta: '14:16', flightno: SV323,
+  hall: '3', sch: '14:16', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Hurghada, date: Sep 28 2012, eta: '16:01', flightno: MS338, hall: '1',
+  sch: '14:15', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '15:22', airline: AIR ALGERIE,
+  airport: Algiers, date: Sep 28 2012, eta: '15:18', flightno: AH4038, hall: '1',
+  sch: '14:15', status: Landed, terminal: '1', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '', airline: EGYPT
+    AIR, airport: Jeddah, date: Sep 28 2012, eta: '', flightno: MS668, hall: '1',
+  sch: '14:10', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Sharm El Sheikh, date: Sep 28 2012, eta: '17:18', flightno: MS308, hall: '1',
+  sch: '14:00', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: AUSTRIAN AIRLINES,
+  airport: Vienna, date: Sep 28 2012, eta: '', flightno: OS863, hall: '1', sch: '14:00',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Aswan, date: Sep 28 2012, eta: '', flightno: MS412, hall: '1', sch: '13:55',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Khartoum, date: Sep 28 2012, eta: '', flightno: MS858, hall: '1', sch: '13:50',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '13:25', airline: ROYAL
+    JORDANIAN, airport: Amman, date: Sep 28 2012, eta: '13:25', flightno: RJ503, hall: '3',
+  sch: '13:45', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '13:35', airline: Petroleum
+    Airline Services, airport: Aswan, date: Sep 28 2012, eta: '13:35', flightno: PER080,
+  hall: '', sch: '13:45', status: Landed, terminal: '', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: SWISS INT,
+  airport: Zurich, date: Sep 28 2012, eta: '', flightno: LX236, hall: '1', sch: '13:40',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '13:30', airline: YEMENIA,
+  airport: Paris, date: Sep 28 2012, eta: '13:30', flightno: IY749, hall: '', sch: '13:25',
+  status: Landed, terminal: '', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '13:14', airline: ALMASRIA  AIRLINES,
+  airport: Taif, date: Sep 28 2012, eta: '13:15', flightno: UJ105, hall: '1', sch: '13:20',
+  status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '12:57', airline: YEMENIA,
+  airport: Sanaa, date: Sep 28 2012, eta: '13:00', flightno: IY602, hall: '1', sch: '13:15',
+  status: Landed, terminal: '1', via: ''}
+- {City: Al Farwaniyah, Country: Kuwait, IATA: KWI, ICAO: OKBK, actual: '13:11', airline: KUWAIT
+    AIRWAYS, airport: Kuwait, date: Sep 28 2012, eta: '13:10', flightno: KU541, hall: '1',
+  sch: '13:15', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Aswan, date: Sep 28 2012, eta: '15:21', flightno: MS396, hall: '1', sch: '13:05',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '13:18', airline: Petroleum
+    Airline Services, airport: Alexandria- Borg El-arab, date: Sep 28 2012, eta: '13:18',
+  flightno: PER1558, hall: '2', sch: '13:01', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Benghazi, date: Sep 28 2012, eta: '', flightno: MS836, hall: '1', sch: '13:00',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Beirut, date: Sep 28 2012, eta: '', flightno: MS710, hall: '1', sch: '12:55',
+  status: '', terminal: '3', via: ''}
+- {City: Al Muharraq, Country: Bahrain, IATA: BAH, ICAO: OBBI, actual: '12:20', airline: GULF
+    AIR, airport: Bahrain, date: Sep 28 2012, eta: '12:20', flightno: GF071, hall: '1',
+  sch: '12:35', status: Landed, terminal: '1', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '', airline: EGYPT
+    AIR, airport: Jeddah, date: Sep 28 2012, eta: '', flightno: MS662, hall: '1',
+  sch: '12:35', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '12:18', airline: (), airport: Un
+    registerd Airport, date: Sep 28 2012, eta: '12:26', flightno: 0X6021, hall: '',
+  sch: '12:31', status: Landed, terminal: '', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Amman, date: Sep 28 2012, eta: '', flightno: MS720, hall: '1', sch: '12:30',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Sharm El Sheikh, date: Sep 28 2012, eta: '14:34', flightno: MS306, hall: '1',
+  sch: '12:30', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Luxor, date: Sep 28 2012, eta: '14:29', flightno: MS356, hall: '1', sch: '12:20',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '12:23', airline: ROYAL
+    FALCON, airport: Amman, date: Sep 28 2012, eta: '12:24', flightno: RFJ601, hall: '1',
+  sch: '12:15', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Dar-es Salaam, date: Sep 28 2012, eta: '', flightno: MS842, hall: '1',
+  sch: '12:05', status: '', terminal: '3', via: ''}
+- {City: Abu Dhabi, Country: United Arab Emirates, IATA: AUH, ICAO: OMAA, actual: '11:36',
+  airline: ETIHAD AIRLINE, airport: Abu Dhabi, date: Sep 28 2012, eta: '11:50', flightno: EY653,
+  hall: '1', sch: '11:55', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Hurghada, date: Sep 28 2012, eta: '13:46', flightno: MS336, hall: '1',
+  sch: '11:55', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '11:19', airline: QATAR
+    AIRWAYS, airport: Doha, date: Sep 28 2012, eta: '11:11', flightno: QR508, hall: '1',
+  sch: '11:35', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: Petroleum Airline
+    Services, airport: Abu Simbel, date: Sep 28 2012, eta: '', flightno: PER090, hall: '',
+  sch: '11:30', status: Non Operational, terminal: '', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '10:44', airline: ALITALIA,
+  airport: Malpensa, date: Sep 28 2012, eta: '10:50', flightno: AZ882, hall: '3',
+  sch: '11:20', status: Landed, terminal: '1', via: ''}
+- {City: Jeddah, Country: Saudi Arabia, IATA: JED, ICAO: OEJN, actual: '10:40', airline: SAUDI
+    ARABIAN AIRLINES, airport: Jeddah, date: Sep 28 2012, eta: '10:40', flightno: SV301,
+  hall: '3', sch: '11:00', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '11:16', airline: AFRIQIYAH
+    AIRWAYS, airport: Tripoli, date: Sep 28 2012, eta: '11:12', flightno: 8U430, hall: '1',
+  sch: '11:00', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Aswan, date: Sep 28 2012, eta: '12:33', flightno: MS394, hall: '1', sch: '10:50',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '10:57', airline: LIBYAN
+    ARAB AIRLINES, airport: Tripoli, date: Sep 28 2012, eta: '11:05', flightno: LN202,
+  hall: '1', sch: '10:45', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '11:05', airline: EMIRATES
+    AIRLINES, airport: Dubai, date: Sep 28 2012, eta: '11:09', flightno: EK927, hall: '1',
+  sch: '10:40', status: Landed, terminal: '1', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Sharm El Sheikh, date: Sep 28 2012, eta: '13:41', flightno: MS304, hall: '1',
+  sch: '10:40', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Hurghada, date: Sep 28 2012, eta: '11:40', flightno: MS334, hall: '1',
+  sch: '09:55', status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Luxor, date: Sep 28 2012, eta: '11:03', flightno: MS354, hall: '1', sch: '09:15',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Dammam, date: Sep 27 2012, eta: '15:38', flightno: MS682, hall: '1', sch: '16:00',
+  status: '', terminal: '3', via: ''}
+- {City: N/A, Country: N/A, IATA: N/A, ICAO: N/A, actual: '', airline: EGYPT AIR,
+  airport: Beirut, date: Sep 27 2012, eta: '12:42', flightno: MS710, hall: '1', sch: '12:55',
+  status: '', terminal: '3', via: ''}

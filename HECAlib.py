@@ -377,13 +377,13 @@ class HECAParser(HTMLParser):
         arrivalCacheStatus = False
         departureCacheStatus = False
         if flightheadig == self.HECAHeading.Arrival or flightheadig == self.HECAHeading.Both:
-            if int(os.path.getmtime("HECA-Arrivals.yaml")) + 60*3 > self.timestamp:
+            if int(os.path.getmtime("HECA-Cache-Arrivals.yaml")) + 60*3 > self.timestamp:
                 if flightheadig == self.HECAHeading.Both:
                     arrivalCacheStatus = True
                 else:
                     return True
         if flightheadig == self.HECAHeading.Departure or flightheadig == self.HECAHeading.Both:
-            if int(os.path.getmtime("HECA-Departures.yaml")) + 60*3 > self.timestamp:
+            if int(os.path.getmtime("HECA-Cache-Departures.yaml")) + 60*3 > self.timestamp:
                 if flightheadig == self.HECAHeading.Both:
                     departureCacheStatus = True
                 else:
@@ -396,22 +396,22 @@ class HECAParser(HTMLParser):
            
     def HECAloadCached(self, flightheadig = HECAHeading.Both):
         if flightheadig == self.HECAHeading.Arrival or flightheadig == self.HECAHeading.Both:
-            with open( "HECA-Arrivals.yaml" , 'r') as f:
+            with open( "HECA-Cache-Arrivals.yaml" , 'r') as f:
                 read_data = f.read()
             self.arrivalList = yaml.load(read_data)
         if flightheadig == self.HECAHeading.Departure or flightheadig == self.HECAHeading.Both:
-            with open( "HECA-Departures.yaml" , 'r') as f:
+            with open( "HECA-Cache-Departures.yaml" , 'r') as f:
                 read_data = f.read()
             self.departureList = yaml.load(read_data)
     #end:HECAisCacheAvailable
     
     def HECAWriteCache(self):
         if self.arrivalList:
-            f = open( "HECA-Arrivals.yaml", 'w')
+            f = open( "HECA-Cache-Arrivals.yaml", 'w')
             yaml.dump(self.arrivalList, f)
             f.close()
         if self.departureList:
-            f = open( "HECA-Departures.yaml", 'w')
+            f = open( "HECA-Cache-Departures.yaml", 'w')
             yaml.dump(self.arrivalList, f)
             f.close()
     #end:HECAWriteCache

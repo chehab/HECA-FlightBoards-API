@@ -18,7 +18,7 @@ statusCode = "400"
 
 ### No Request render a html page.
 if len(GET.keys()) == 0:
-    with open( "templetes/hello.html" , 'r') as f:
+    with open( "templates/hello.html" , 'r') as f:
         read_data = f.read()
     f.closed
     print "Content-type: text/html\r\n\r\n"
@@ -61,9 +61,36 @@ else:
                     returnType = "json"; continue
                 elif GET[ky].value == "xml":
                     returnType = "xml"; continue
+        ### debugig: check=function|var ###################################
+            if ky == 'exec':
+                print "Content-type: text/html"#; print
+                print "Content-Encoding: UTF8"; print
+                
+                if GET[ky].value == "HECAisCacheAvailable":
+                    CAI_debug = HECAParser()
+                    print '<h2>Running in Debug mode</h2><br/><h3 styl"color:red;">'
+                    print str( CAI_debug.HECAisCacheAvailable() )+"</h3>"
+                
+                if GET[ky].value == "HECAisCacheAvailable|arrival":
+                    CAI_debug = HECAParser()
+                    print '<h2>Running in Debug mode</h2><br/><h3 styl"color:red;">'
+                    print str( CAI_debug.HECAisCacheAvailable(CAI_debug.HECAHeading.Arrival) )+"</h3>"
+                
+                if GET[ky].value == "HECAisCacheAvailable|departure":
+                    CAI_debug = HECAParser()
+                    print '<h2>Running in Debug mode</h2><br/><h3 styl"color:red;">'
+                    print str( CAI_debug.HECAisCacheAvailable(CAI_debug.HECAHeading.Departure) )+"</h3>"
+                    
+                
+                if GET[ky].value == "HECAUpdateCache":
+                    CAI_debug = HECAParser()
+                    print '<h2>Running in Debug mode</h2><br/><h3 styl"color:red;">'
+                    CAI_debug.HECAUpdateCache()
+                    print "Cache Updated</h3>"
+                    
         ################################################### GET request ###
     except Exception as inst:
-        with open( "templaltes/head.html" , 'r') as f:
+        with open( "templates/head.html" , 'r') as f:
             read_data = f.read()
         f.closed
         print "Status: "+statusCode+"\r\nContent-Type: text/html\r\n\r\n"

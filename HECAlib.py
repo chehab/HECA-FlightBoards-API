@@ -41,7 +41,7 @@
 
 from HTMLParser import HTMLParser
 from urllib import urlopen
-import json, yaml
+import json, yaml, time, os
 
 def enum(**enums):
     return type('Enum', (), enums)
@@ -74,6 +74,7 @@ class HECAParser(HTMLParser):
     titles = ['airline','flightno','date','sch','eta','actual',"airport",'via','terminal','hall','status']
 
     #####################
+    timestamp   = None #unix timestamp
     openRow     = False
     insertCell  = False
     debug       = DebugMode.Off
@@ -85,6 +86,8 @@ class HECAParser(HTMLParser):
 
 
     def handle_starttag(self, tag, attrs):
+        if not self.timestamp: # get unix timestamp on first parse
+            self.timestamp = int(time.time())
         # Open New Raw in case "<tr align=center>"
         if len(attrs) and not self.openRow:
             if tag == "tr" and attrs[0] == ('align', 'center'):
@@ -108,15 +111,8 @@ class HECAParser(HTMLParser):
             self.openRow = False
             self.currentIndex = 0
             self.__debug_flight__()
-            # if len(self.flight["airport"]):
-                #self.flight["airport"] = self.flight["airport"] + " -asd"
             if self.HECAisAPExists(self.flight["airport"]):
-                #APcodes = self.HECAAppendAPCodes( self.flight["airport"] )
-                #self.flight["IATA"] = str(APcodes["IATA"])
-                #self.flight["ICAO"] = APcodes["ICAO"]
-                #self.flight["City"] = APcodes["City"]
-                #self.flight["Country"] = APcodes["Country"]
-                self.flight.update( self.HECAAppendAPCodes( self.flight["airport"] ) )
+                self.flight.update( self.HECAGetAPCodes( self.flight["airport"] ) )
             if self.flightmode == self.HECAHeading.Arrival:
                 self.arrivalList.append(self.flight)
             if self.flightmode == self.HECAHeading.Departure:
@@ -171,7 +167,10 @@ class HECAParser(HTMLParser):
     #end:HECAGenerateFlightData
 
 
-    def HECAGenerateArrival(self):
+    def HECAGenerateArrival(self, withCache=True):
+        if self.HECAisCacheAvailable(self.HECAHeading.Arrival) and withCache:
+            self.HECAloadCached(self.HECAHeading.Arrival)
+            return True
         if self.debug:
             print " %>Parsing Arrival Data"
         f = urlopen("http://www.cairo-airport.com/flight_arrival_result.asp")
@@ -180,10 +179,14 @@ class HECAParser(HTMLParser):
         f.close()
         self.flightmode = None
         self.arrivalList.reverse()
+        self.HECAWriteCache()
     #end:HECAGenerateArrival
 
 
-    def HECAGenerateDeparture(self):
+    def HECAGenerateDeparture(self, withCache=True):
+        if self.HECAisCacheAvailable(self.HECAHeading.Departure) and withCache:
+            self.HECAloadCached(self.HECAHeading.Departure)
+            return True
         if self.debug:
             print " %>Parsing Departure Data"
         f = urlopen("http://www.cairo-airport.com/flight_departure_result.asp")
@@ -192,6 +195,7 @@ class HECAParser(HTMLParser):
         f.close()
         self.flightmode = None
         self.departureList.reverse()
+        self.HECAWriteCache()
     #end:HECAGenerateDeparture
 
 
@@ -367,14 +371,66 @@ class HECAParser(HTMLParser):
     #end:HECAExportDepartureToXMLFile
 
 
+### Cacheing ########################################################################
+
+    def HECAisCacheAvailable(self, flightheadig = HECAHeading.Both):
+        arrivalCacheStatus = False
+        departureCacheStatus = False
+        if flightheadig == self.HECAHeading.Arrival or flightheadig == self.HECAHeading.Both:
+            if int(os.path.getmtime("HECA-Arrivals.yaml")) + 60*3 > self.timestamp:
+                if flightheadig == self.HECAHeading.Both:
+                    arrivalCacheStatus = True
+                else:
+                    return True
+        if flightheadig == self.HECAHeading.Departure or flightheadig == self.HECAHeading.Both:
+            if int(os.path.getmtime("HECA-Departures.yaml")) + 60*3 > self.timestamp:
+                if flightheadig == self.HECAHeading.Both:
+                    departureCacheStatus = True
+                else:
+                    return True
+        if flightheadig == self.HECAHeading.Both:
+            return arrivalCacheStatus and departureCacheStatus
+        else:
+            return False
+    #end:HECAisCacheAvailable
+           
+    def HECAloadCached(self, flightheadig = HECAHeading.Both):
+        if flightheadig == self.HECAHeading.Arrival or flightheadig == self.HECAHeading.Both:
+            with open( "HECA-Arrivals.yaml" , 'r') as f:
+                read_data = f.read()
+            self.arrivalList = yaml.load(read_data)
+        if flightheadig == self.HECAHeading.Departure or flightheadig == self.HECAHeading.Both:
+            with open( "HECA-Departures.yaml" , 'r') as f:
+                read_data = f.read()
+            self.departureList = yaml.load(read_data)
+    #end:HECAisCacheAvailable
+    
+    def HECAWriteCache(self):
+        if self.arrivalList:
+            f = open( "HECA-Arrivals.yaml", 'w')
+            yaml.dump(self.arrivalList, f)
+            f.close()
+        if self.departureList:
+            f = open( "HECA-Departures.yaml", 'w')
+            yaml.dump(self.arrivalList, f)
+            f.close()
+    #end:HECAWriteCache
+
+    def HECAUpdateCache(self, flightheadig = HECAHeading.Both):
+        if flightheadig == self.HECAHeading.Arrival or flightheadig == self.HECAHeading.Both:
+            self.HECAGenerateArrival(withCache=False)
+        if flightheadig == self.HECAHeading.Departure or flightheadig == self.HECAHeading.Both:
+            self.HECAGenerateDeparture(withCache=False)
+
 ### AP Codes ########################################################################
 
 
-    def HECAAppendAPCodes(self,searchPhrase):
+    def HECAGetAPCodes(self,searchPhrase):
         with open( "HECA-AirportsCodes.yaml" , 'r') as f:
             read_data = f.read()
         APCodes = yaml.load(read_data)
         return APCodes[searchPhrase]
+    #ed:HECAGetAPCodes
 
     def HECAisAPExists(self,searchPhrase):
         with open( "HECA-AirportsCodes.yaml" , 'r') as f:

@@ -24,6 +24,8 @@ def mimetype(mt="html"):
         print "Content-type: application/json"#; print
     if mt == "xml":
         print "Content-type: application/xml"
+    if mt == "javascript":
+        print "Content-type: text/javascript"
     if mt == "html":
         print "Content-type: text/html"#; print
     print "Content-Encoding: UTF8"; print
@@ -35,8 +37,9 @@ if len(GET.keys()) == 0:
    print respondpage.echo()
 ### Process Request 
 else:
-    returnType = None
-    flightData = None
+    returnType    = None
+    flightData    = None
+    json_callback = None
     try:
         for ky in GET.keys():
         ### format=flight ################################################
@@ -71,6 +74,9 @@ else:
                     returnType = "json"; continue
                 elif GET[ky].value == "xml":
                     returnType = "xml"; continue
+        ### JSON: callback ################################################
+            if ky == 'callback':
+                json_callback = GET[ky].value; continue
         ### debugig: check=function|var ###################################
             if ky == 'exec':
                 
@@ -159,19 +165,31 @@ else:
     #try:
     CAI = HECAParser()
     ### Returing JSON #################################################################
+    
+    
     if returnType == "json":
-        print "Content-type: application/json"#; print
-        print "Content-Encoding: UTF8"; print
+        
+        respond = ""
         if flightData == "both":
-            print CAI.HECAGetAsJSON()
+            respond = CAI.HECAGetAsJSON()
         elif flightData == "arrival":
-            print CAI.HECAGetArrivalAsJSON()
+            respond = CAI.HECAGetArrivalAsJSON()
         elif flightData == "departure":
-            print CAI.HECAGetDepartureAsJSON()
+            respond = CAI.HECAGetDepartureAsJSON()
+            
+        if json_callback:
+            mimetype("javascript")
+            respond = json_callback + "(" + respond + ")"
+        else:
+            mimetype("json")
+            
+        print respond
+        
+        
     ### Returing XML ##################################################################
     if returnType == "xml":
-        print "Content-type: application/xml"
-        print "Content-Encoding: UTF8"; print
+        mimetype("xml")
+        
         if flightData == "both":
             print CAI.HECAGetAsXML()
         elif flightData == "arrival":

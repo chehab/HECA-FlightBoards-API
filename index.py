@@ -10,19 +10,29 @@ import cgi, cgitb; cgitb.enable()
 #Importing HECA/CAI flightdata parser
 from HECAlib import HECAParser
 
+#Importing HECA Themeing
+from HECAtheme import HECATheme
+
 # Create instance of GET request
 GET = cgi.FieldStorage()
 
 # http status code
 statusCode = "400"
 
+def mimetype(mt="html"):
+    if mt == "json":
+        print "Content-type: application/json"#; print
+    if mt == "xml":
+        print "Content-type: application/xml"
+    if mt == "html":
+        print "Content-type: text/html"#; print
+    print "Content-Encoding: UTF8"; print
+
+
 ### No Request render a html page.
 if len(GET.keys()) == 0:
-    with open( "templates/hello.html" , 'r') as f:
-        read_data = f.read()
-    f.closed
-    print "Content-type: text/html\r\n\r\n"
-    print read_data
+   respondpage = HECATheme()
+   print respondpage.echo()
 ### Process Request 
 else:
     returnType = None
@@ -63,30 +73,60 @@ else:
                     returnType = "xml"; continue
         ### debugig: check=function|var ###################################
             if ky == 'exec':
-                print "Content-type: text/html"#; print
-                print "Content-Encoding: UTF8"; print
+                
+                
+                #print "Content-type: text/html"#; print
+                #print "Content-Encoding: UTF8"; print
+                mode_msg = "Maintenance Mode"
+                respondpage = HECATheme()
                 
                 if GET[ky].value == "HECAisCacheAvailable":
                     CAI_debug = HECAParser()
-                    print '<h2>Running in Debug mode</h2><br/><h3 styl"color:red;">'
-                    print str( CAI_debug.HECAisCacheAvailable() )+"</h3>"
+                    respond_msg = "Is Cache Available = "
+                    if CAI_debug.HECAisCacheAvailable():
+                        respond_msg += "True"
+                        respondpage.alert("success",respond_msg, mode_msg)
+                    else:
+                        respond_msg += "False"
+                        respondpage.alert("error",respond_msg, mode_msg)
+                    print respondpage.echo()
                 
                 if GET[ky].value == "HECAisCacheAvailable|arrival":
                     CAI_debug = HECAParser()
-                    print '<h2>Running in Debug mode</h2><br/><h3 styl"color:red;">'
-                    print str( CAI_debug.HECAisCacheAvailable(CAI_debug.HECAHeading.Arrival) )+"</h3>"
+                    respond_msg = "Is Cache Available for Arrivals = "
+                    if CAI_debug.HECAisCacheAvailable( CAI_debug.HECAHeading.Arrival ):
+                        respond_msg += "True"
+                        respondpage.alert("success",respond_msg,mode_msg)
+                    else:
+                        respond_msg += "False"
+                        respondpage.alert("error",respond_msg,mode_msg)
+                    print respondpage.echo()
+                    
                 
                 if GET[ky].value == "HECAisCacheAvailable|departure":
                     CAI_debug = HECAParser()
-                    print '<h2>Running in Debug mode</h2><br/><h3 styl"color:red;">'
-                    print str( CAI_debug.HECAisCacheAvailable(CAI_debug.HECAHeading.Departure) )+"</h3>"
-                    
+                    respond_msg = "Is Cache Available for Departure = "
+                    if CAI_debug.HECAisCacheAvailable( CAI_debug.HECAHeading.Departure ):
+                        respond_msg += "True"
+                        respondpage.alert("success",respond_msg,mode_msg)
+                    else:
+                        respond_msg += "False"
+                        respondpage.alert("error",respond_msg,mode_msg)
+                    print respondpage.echo()
                 
                 if GET[ky].value == "HECAUpdateCache":
                     CAI_debug = HECAParser()
-                    print '<h2>Running in Debug mode</h2><br/><h3 styl"color:red;">'
                     CAI_debug.HECAUpdateCache()
-                    print "Cache Updated</h3>"
+                    respondpage = HECATheme("info","HECA Cache Updated","Maintenance Mode")
+                    print respondpage.echo()
+                    
+                
+                if GET[ky].value == "HECAGetUpdatedFlights|arrival|json":
+                    mimetype("json")
+                    CAI_debug = HECAParser()
+                    CAI_debug.HECAGetUpdatedFlights( CAI_debug.HECAHeading.Arrival )
+                    print CAI_debug.HECAGetArrivalAsJSON()
+                
                     
         ################################################### GET request ###
     except Exception as inst:

@@ -159,11 +159,13 @@ class HECAParser(HTMLParser):
     #end:HECAUpdateFlightData
 
 
-    def HECAGenerateFlightData(self):
+    def HECAGenerateFlightData(self, flightheading = HECAHeading.Both):
         if self.debug:
             print " %>Parsing Flight Data"
-        self.HECAGenerateArrival()
-        self.HECAGenerateDeparture()
+        if flightheadig == self.HECAHeading.Arrival or flightheadig == self.HECAHeading.Both:
+            self.HECAGenerateArrival()
+        if flightheadig == self.HECAHeading.Departure or flightheadig == self.HECAHeading.Both:
+            self.HECAGenerateDeparture()
     #end:HECAGenerateFlightData
 
 
@@ -203,15 +205,19 @@ class HECAParser(HTMLParser):
 ### Return JSON ##########################################################################
 
 
-    def HECAGetAsJSON(self, _heading = HECAHeading.Both):
+    def HECAGetAsJSON(self, _heading = HECAHeading.Both, loadfromcache=False):
         if self.debug:
             print " %>Generating JSON"            
         if _heading == self.HECAHeading.Departure:
-            if not self.departureList:
+            if loadfromcache:
+                self.HECAloadCached(self.HECAHeading.Departure)
+            elif not self.departureList:
                 self.HECAGenerateDeparture()
             return json.dumps( { "departure":self.departureList } )
         if _heading == self.HECAHeading.Arrival:
-            if not self.arrivalList:
+            if loadfromcache:
+                self.HECAloadCached(self.HECAHeading.Arrival)
+            elif not self.arrivalList:
                 self.HECAGenerateArrival()
             return json.dumps( { "arrival":self.arrivalList } )
         if _heading == self.HECAHeading.Both:
@@ -221,19 +227,23 @@ class HECAParser(HTMLParser):
     #end:HECAGetAsJSON
 
 
-    def HECAGetArrivalAsJSON(self):
+    def HECAGetArrivalAsJSON(self, loadfromcache=False):
         if self.debug:
             print " %>Generating Arrival JSON"
-        if not self.arrivalList:
+        if loadfromcache:
+            self.HECAloadCached(self.HECAHeading.Arrival)
+        elif not self.arrivalList:
             self.HECAGenerateArrival()
         return json.dumps( {"Arrival":self.arrivalList} )
     #end:HECAGetArrivalAsJSON
 
 
-    def HECAGetDepartureAsJSON(self):
+    def HECAGetDepartureAsJSON(self, loadfromcache=False):
         if self.debug:
             print " %>Generating Departure JSON"
-        if not self.departureList:
+        if loadfromcache:
+            self.HECAloadCached(self.HECAHeading.Departure)
+        elif not self.departureList:
             self.HECAGenerateDeparture()
         return json.dumps( {"departure":self.departureList} )
     #end:HECAGetArrivalAsJSON
@@ -371,6 +381,36 @@ class HECAParser(HTMLParser):
     #end:HECAExportDepartureToXMLFile
 
 
+### FB Updates ########################################################################
+
+
+    def HECAGetUpdatedFlights(self, flightheading = HECAHeading.Both):
+        if not self.HECAisCacheAvailable(flightheading):
+            self.HECAloadCached(flightheading)
+            CAI = HECAParser()
+            CAI.HECAGenerateFlightData(flightheading)
+            self.HECAExtractUpdatedFlights(CAI)
+    #end:HECAGetUpdatedFlights
+    
+    def HECAExtractUpdatedFlights(self, HECAInstance):
+        pass
+    
+    def HECAExtractUpdatedArrivals(self, HECAInstance):
+        arrivalsUpdates = []
+        for newflight in HECAInstance.arrivalList:
+            for cacheflight in self.arrivalList: 
+                if cacheflight['flightno'] == newflight['flightno']:
+                    isupdated = False
+                    for kys in newflight.keys():
+                        if cacheflight[kys] == newflight[kys]:
+                            isupdated = True
+                    if isupdated:
+                        arrivalsUpdates.append(newflight)
+        if arrivalsUpdates:
+            self.arrivalList = arrivalsUpdates
+                
+
+
 ### Cacheing ########################################################################
 
     def HECAisCacheAvailable(self, flightheadig = HECAHeading.Both):
@@ -414,7 +454,7 @@ class HECAParser(HTMLParser):
             f.close()
         if self.departureList:
             f = open( "HECA-Cache-Departures.yaml", 'w')
-            yaml.dump(self.arrivalList, f)
+            yaml.dump(self.departureList, f)
             f.close()
     #end:HECAWriteCache
 

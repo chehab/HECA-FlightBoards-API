@@ -398,131 +398,186 @@ SOHAG:
   City: Sohag
   Country: Egypt
 Singapore:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: SIN
+  ICAO: WSSS
+  City: Singapore
+  Country: Singapore
 Abu Rudies:
-  IATA: N/A
-  ICAO: N/A
+  IATA: ???
+  ICAO: ????
   City: N/A
   Country: N/A
 Ras-El khaimah:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: RKT
+  ICAO: OMRK
+  City: Ras Al Khaimah
+  Country: United Arab Emirates
 Paphos:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: PFO
+  ICAO: LCPH
+  City: Paphos
+  Country: Cyprus
 Assiut:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ATZ
+  ICAO: HEAT
+  City: Assiut
+  Country: Egypt
 Gabal Azzait:
-  IATA: N/A
-  ICAO: N/A
+  IATA: ???
+  ICAO: ????
   City: N/A
   Country: N/A
 New Valley:
-  IATA: N/A
-  ICAO: N/A
+  IATA: ???
+  ICAO: ????
   City: N/A
   Country: N/A
 Catania:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: CTA
+  ICAO: LICC
+  City: Catania
+  Country: Italy
 Bergamo:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: BGY
+  ICAO: LIME
+  City: Bergamo
+  Country: Italy
 Ankara:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ESB
+  ICAO: LTAC
+  City: Ankara
+  Country: Turkey
 Moscow-:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: ???
+  ICAO: ????
+  City: Moscow
+  Country: Russia
 Tokyo- Narita:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: NRT
+  ICAO: RJAA
+  City: Tokyo
+  Country: Japan
 Mumbai:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: BOM
+  ICAO: VABB
+  City: Mumbai
+  Country: India
 Bader .Eldeen:
-  IATA: N/A
-  ICAO: N/A
+  IATA: ???
+  ICAO: ????
   City: N/A
   Country: N/A
 Baghdad:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: BGW
+  ICAO: ORBI
+  City: Baghdad
+  Country: Iraq
 Bologna:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: BLQ
+  ICAO: LIPE
+  City: Bologna
+  Country: Italy
 Ras-Shokair:
-  IATA: N/A
-  ICAO: N/A
+  IATA: ???
+  ICAO: ????
   City: N/A
   Country: N/A
 London-Stansted:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: STN
+  ICAO: EGSS
+  City: London
+  Country: UK
 Malta-Luqa:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: MLA
+  ICAO: LMML
+  City: Malta
+  Country: Luqa
 El Kharga:
-  IATA: N/A
+  IATA: ???
   ICAO: N/A
   City: N/A
   Country: N/A
 Meliha:
-  IATA: N/A
-  ICAO: N/A
+  IATA: ???
+  ICAO: ????
   City: N/A
   Country: N/A
 Belgrade:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: BEG
+  ICAO: LYBE
+  City: Belgrade
+  Country: Serbia
 Hodeide:
-  IATA: N/A
-  ICAO: N/A
-  City: N/A
-  Country: N/A
+  IATA: HOD
+  ICAO: OYHD
+  City: Al Hudaydah
+  Country: Yemen
 Abu El garadeek:
-  IATA: N/A
-  ICAO: N/A
+  IATA: ???
+  ICAO: ????
   City: N/A
   Country: N/A
 MISURATA:
+  IATA: MRA
+  ICAO: HLMS
+  City: Misrata
+  Country: Libya
+Aqaba:
+  IATA: AQJ
+  ICAO: OJAQ
+  City: Aqaba
+  Country: Jordan
+EL Gona:
+  IATA: ???
+  ICAO: HEGO
+  City: EL Gona
+  Country: Egypt
+Taiz:
   IATA: N/A
   ICAO: N/A
   City: N/A
   Country: N/A
-Aqaba:
+sebha:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Marsa Matruh:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Port Said:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Toulouse:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Al Ain:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Arar:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Kerkyra:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+PORT SUDAN:
+  IATA: N/A
+  ICAO: N/A
+  City: N/A
+  Country: N/A
+Latakia:
   IATA: N/A
   ICAO: N/A
   City: N/A

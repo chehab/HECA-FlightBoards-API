@@ -40,169 +40,166 @@ else:
     returnType    = None
     flightData    = None
     json_callback = None
-    try:
-        for ky in GET.keys():
-        ### format=flight ################################################
-            if ky == 'json':
-                returnType = "json"
-                if GET[ky].value == "arrival":
-                    flightData = "arrival"; continue
-                elif GET[ky].value == "departure":
-                    flightData = "departure"; continue
-                elif GET[ky].value == "both" or GET[ky].value == "all":
-                    flightData = "both"; continue
-            ################################################
-            if ky == 'xml':
-                returnType = "xml"
-                if GET[ky].value == "arrival":
-                    flightData = "arrival"; continue
-                elif GET[ky].value == "departure":
-                    flightData = "departure"; continue
-                elif GET[ky].value == "both" or GET[ky].value == "all":
-                    flightData = "both"; continue
-        ### flight=format ################################################
-            if ky == 'arrival':
-                flightData = "arrival"
-                if GET[ky].value == "json":
-                    returnType = "json"; continue
-                elif GET[ky].value == "xml":
-                    returnType = "xml"; continue
-            ################################################
-            if ky == 'departure':
-                flightData = "departure"
-                if GET[ky].value == "json":
-                    returnType = "json"; continue
-                elif GET[ky].value == "xml":
-                    returnType = "xml"; continue
-        ### JSON: callback ################################################
-            if ky == 'callback':
-                json_callback = GET[ky].value; continue
-        ### debugig: check=function|var ###################################
-            if ky == 'exec':
-                
-                
-                #print "Content-type: text/html"#; print
-                #print "Content-Encoding: UTF8"; print
-                mode_msg = "Maintenance Mode"
+    loadfromcache = False
+    #try:
+    for ky in GET.keys():
+        
+        value_lower = GET.getvalue(ky).lower()
+        keyword = str(ky).lower()
+        
+    
+    ### format=flight ################################################
+    
+        if keyword == 'json':
+            returnType = "json"
+            if value_lower == "arrival":
+                flightData = "arrival"; continue
+            elif value_lower == "departure":
+                flightData = "departure"; continue
+            elif value_lower == "both" or value_lower == "all":
+                flightData = "both"; continue
+        
+        ################################################
+        
+        if keyword == 'xml':
+            returnType = "xml"
+            if value_lower == "arrival":
+                flightData = "arrival"; continue
+            elif value_lower == "departure":
+                flightData = "departure"; continue
+            elif value_lower == "both" or value_lower == "all":
+                flightData = "both"; continue
+        
+    
+    ### flight=format ################################################
+    
+        if keyword == 'arrival':
+            flightData = "arrival"
+            if value_lower == "json":
+                returnType = "json"; continue
+            elif value_lower == "xml":
+                returnType = "xml"; continue
+        
+        ################################################
+        
+        if keyword == 'departure':
+            flightData = "departure"
+            if value_lower == "json":
+                returnType = "json"; continue
+            elif value_lower == "xml":
+                returnType = "xml"; continue
+        
+    
+    ### JSON: callback ################################################
+    
+        if keyword == 'callback':
+            json_callback = value_lower; continue
+    
+    ### Test Mode: load from cache ####################################
+    
+        if keyword == 'cache':
+            kyValue = GET.getvalue(ky)
+            if kyValue == "1" or kyValue == "true" or kyValue == "force":
+                loadfromcache = True; continue
+    
+    ### debugig: check=function|var ###################################
+    
+        if keyword == 'exec':
+            
+            kyValue = GET.getvalue(ky)
+            mode_msg = "Maintenance Mode"
+            respondpage = HECATheme()
+            
+            if kyValue == "HECAisCacheAvailable":
+                CAI_debug = HECAParser()
+                respond_msg = "Is Cache Available = "
+                if CAI_debug.HECAisCacheAvailable():
+                    respond_msg += "True"
+                    respondpage.alert("success",respond_msg, mode_msg)
+                else:
+                    respond_msg += "False"
+                    respondpage.alert("error",respond_msg, mode_msg)
+                print respondpage.echo()
+            
+            if kyValue == "HECAisCacheAvailable|arrival":
+                CAI_debug = HECAParser()
+                respond_msg = "Is Cache Available for Arrivals = "
+                if CAI_debug.HECAisCacheAvailable( CAI_debug.HECAHeading.Arrival ):
+                    respond_msg += "True"
+                    respondpage.alert("success",respond_msg,mode_msg)
+                else:
+                    respond_msg += "False"
+                    respondpage.alert("error",respond_msg,mode_msg)
+                print respondpage.echo()
+            
+            if kyValue == "HECAisCacheAvailable|departure":
+                CAI_debug = HECAParser()
+                respond_msg = "Is Cache Available for Departure = "
+                if CAI_debug.HECAisCacheAvailable( CAI_debug.HECAHeading.Departure ):
+                    respond_msg += "True"
+                    respondpage.alert("success",respond_msg,mode_msg)
+                else:
+                    respond_msg += "False"
+                    respondpage.alert("error",respond_msg,mode_msg)
+                print respondpage.echo()
+            
+            if kyValue == "HECAUpdateCache":
+                CAI_debug = HECAParser()
+                CAI_debug.HECAUpdateCache()
                 respondpage = HECATheme()
-                
-                if GET[ky].value == "HECAisCacheAvailable":
-                    CAI_debug = HECAParser()
-                    respond_msg = "Is Cache Available = "
-                    if CAI_debug.HECAisCacheAvailable():
-                        respond_msg += "True"
-                        respondpage.alert("success",respond_msg, mode_msg)
-                    else:
-                        respond_msg += "False"
-                        respondpage.alert("error",respond_msg, mode_msg)
-                    print respondpage.echo()
-                
-                if GET[ky].value == "HECAisCacheAvailable|arrival":
-                    CAI_debug = HECAParser()
-                    respond_msg = "Is Cache Available for Arrivals = "
-                    if CAI_debug.HECAisCacheAvailable( CAI_debug.HECAHeading.Arrival ):
-                        respond_msg += "True"
-                        respondpage.alert("success",respond_msg,mode_msg)
-                    else:
-                        respond_msg += "False"
-                        respondpage.alert("error",respond_msg,mode_msg)
-                    print respondpage.echo()
-                    
-                
-                if GET[ky].value == "HECAisCacheAvailable|departure":
-                    CAI_debug = HECAParser()
-                    respond_msg = "Is Cache Available for Departure = "
-                    if CAI_debug.HECAisCacheAvailable( CAI_debug.HECAHeading.Departure ):
-                        respond_msg += "True"
-                        respondpage.alert("success",respond_msg,mode_msg)
-                    else:
-                        respond_msg += "False"
-                        respondpage.alert("error",respond_msg,mode_msg)
-                    print respondpage.echo()
-                
-                if GET[ky].value == "HECAUpdateCache":
-                    CAI_debug = HECAParser()
-                    CAI_debug.HECAUpdateCache()
-                    respondpage = HECATheme("info","HECA Cache Updated","Maintenance Mode")
-                    print respondpage.echo()
-                    
-                
-                if GET[ky].value == "HECAGetUpdatedFlights|arrival|json":
-                    mimetype("json")
-                    CAI_debug = HECAParser()
-                    CAI_debug.HECAGetUpdatedFlights( CAI_debug.HECAHeading.Arrival )
-                    print CAI_debug.HECAGetArrivalAsJSON()
-                
-                    
+                respondpage.alert("info","HECA Cache Updated",mode_msg)
+                print respondpage.echo()
+            
+            if kyValue == "HECAGetUpdatedFlights|arrival|json":
+                mimetype("json")
+                CAI_debug = HECAParser()
+                CAI_debug.HECAGetUpdatedFlights( CAI_debug.HECAHeading.Arrival )
+                print CAI_debug.HECAGetArrivalAsJSON()
+            
+        
         ################################################### GET request ###
-    except Exception as inst:
-        with open( "templates/head.html" , 'r') as f:
-            read_data = f.read()
-        f.closed
-        print "Status: "+statusCode+"\r\nContent-Type: text/html\r\n\r\n"
-        print read_data
-        print '<h1 style="font-size: 50px;">'+statusCode+'</h1>'
-        print '<h2 style="font-weight: bold;">An Error was Encountered,'
-        print "<br/>Check your Requested Parameter and Authentication.</h2>"
-        print type(inst)
-        print inst.args
-        print inst
-        print '<h2> Contact <a href="mailto:apis@chehab.me">  apis@chehab.me  </a>  </h2>'
-    except:
-        with open( "templates/head.html" , 'r') as f:
-            read_data = f.read()
-        f.closed
-        print "Status: "+statusCode+"\r\nContent-Type: text/html\r\n\r\n"
-        print read_data
-        print '<h1 style="font-size: 50px;">'+statusCode+'</h1>'
-        print '<h2 style="font-weight: bold;">An Error was Encountered,'
-        print "<br/>Check your Requested Parameter and Authentication."
-        print '<br/><br/> Contact <a href="mailto:apis@chehab.me">  apis@chehab.me  </a>  </h2>'
+    #except Exception as inst:
+        #TODO
+    #except:
+        #TODO
     
     
     #######################################################################################
     ### Returing Request ##################################################################
+    
     #try:
     CAI = HECAParser()
+    
     ### Returing JSON #################################################################
     
-    
     if returnType == "json":
-        
+    
         respond = ""
         if flightData == "both":
-            respond = CAI.HECAGetAsJSON()
+            respond = CAI.HECAGetAsJSON(loadfromcache)
         elif flightData == "arrival":
-            respond = CAI.HECAGetArrivalAsJSON()
+            respond = CAI.HECAGetArrivalAsJSON(loadfromcache)
         elif flightData == "departure":
-            respond = CAI.HECAGetDepartureAsJSON()
-            
+            respond = CAI.HECAGetDepartureAsJSON(loadfromcache)
+        
         if json_callback:
             mimetype("javascript")
             respond = json_callback + "(" + respond + ")"
         else:
             mimetype("json")
-            
+        
         print respond
-        
-        
+    
     ### Returing XML ##################################################################
+    
     if returnType == "xml":
         mimetype("xml")
-        
         if flightData == "both":
             print CAI.HECAGetAsXML()
         elif flightData == "arrival":
             print CAI.HECAGetArrivalAsXML()
         elif flightData == "departure":
             print CAI.HECAGetDepartureAsXML()
+    
    # except:
-   #      with open( "templates/head.html" , 'r') as f:
-   #          read_data = f.read()
-   #      f.closed
-   #      print "Status: "+statusCode+"\r\nContent-Type: text/html\r\n\r\n"
-   #      print read_data
-   #      print '<h1 style="font-size: 50px;">'+statusCode+'</h1>'
-   #      print '<h2 style="font-weight: bold;">An Error was Encountered,'
-   #      print "<br/>Try Agian Later."
-   #      print '<br/><br/> Contact <a href="mailto:apis@chehab.me">  apis@chehab.me  </a>  </h2>'
+       #TODO

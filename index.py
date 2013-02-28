@@ -3,7 +3,9 @@
 # export PYTHONIOENCODING=utf-8
 
 # Import modules 
-import sys
+import os, sys
+import Queue
+import threading
 # Import modules for CGI deugging
 import cgi, cgitb; cgitb.enable()
 
@@ -18,6 +20,14 @@ GET = cgi.FieldStorage()
 
 # http status code
 statusCode = "400"
+
+def HECAUpdateCache():
+    CAI_debug = HECAParser()
+    CAI_debug.HECAUpdateCache()
+    # respondpage = HECATheme()
+    # respondpage.alert("info","HECA Cache Updated",mode_msg)
+    # print respondpage.echo()
+#end:HECAUpdateCache
 
 def mimetype(mt="html"):
     if mt == "json":
@@ -144,17 +154,54 @@ else:
                 print respondpage.echo()
             
             if kyValue == "HECAUpdateCache":
-                CAI_debug = HECAParser()
-                CAI_debug.HECAUpdateCache()
+
+                update_q = Queue.Queue()
+                t = threading.Thread(target=HECAUpdateCache)
+                t.daemon = True
+                t.start()
+
+                reload_url = ""
+                for char in str( os.environ['SERVER_NAME'] + os.environ['REQUEST_URI'] ):
+                    if char != "?":
+                        reload_url += char
+                    else:
+                        reload_url += "?exec=CacheUpdating"
+                        break
+
                 respondpage = HECATheme()
-                respondpage.alert("info","HECA Cache Updated",mode_msg)
+                respondpage.pageRefresh(60,reload_url)
+                respondpage.alert("info","HECA Updating Cache. <small>Page Will ReFresh in 60 secands.</small>",mode_msg)
                 print respondpage.echo()
             
-            if kyValue == "HECAGetUpdatedFlights|arrival|json":
-                mimetype("json")
-                CAI_debug = HECAParser()
-                CAI_debug.HECAGetUpdatedFlights( CAI_debug.HECAHeading.Arrival )
-                print CAI_debug.HECAGetArrivalAsJSON()
+            if kyValue == "CacheUpdating":
+                reload_url = ""
+                for char in str( os.environ['SERVER_NAME'] + os.environ['REQUEST_URI'] ):
+                    if char != "?":
+                        reload_url += char
+                    else:
+                        reload_url += "?exec=CacheUpdating"
+                        break
+
+                respondpage = HECATheme()
+
+                if CAI_debug.HECAisCacheAvailable():
+                    respondpage.alert("info","HECA Cache Has Been Updated.",mode_msg)
+                else:
+                    respondpage.pageRefresh(60,reload_url)
+                    respondpage.alert("info","HECA Updating Cache. <small>Page Will ReFresh in 60 secands.</small>",mode_msg)
+                
+                print respondpage.echo()
+                exit()
+
+            # if kyValue == "HECAGetUpdatedFlights|arrival|json":
+            #     CAI_debug = HECAParser()
+            #     if CAI_debug.HECAisCacheAvailable( CAI_debug.HECAHeading.Departure ):
+            #         mimetype("json")
+            #         CAI_debug.HECAGetUpdatedFlights( CAI_debug.HECAHeading.Arrival )
+            #         print CAI_debug.HECAGetArrivalAsJSON()
+            #     else:
+            #         mimetype("json")
+            #         print '{"Cach is Outdated":-1}'
             
         
         ################################################### GET request ###
